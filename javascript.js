@@ -151,7 +151,9 @@ let form=document.getElementById('form');
 fermerformulaire();
 
 }
-// function verificationform(nom,select,photo,email,telephone,experiencesarr){
-// const nomrejex = /^[a-zA-Z\s\-_]{2,}$/;
-// const photorejex=
-// }
+function verificationform(nom,select,photo,email,telephone,experiencesarr){
+const nomrejex = /^[a-zA-Z\s\-_]{2,}$/;
+const photorejex= /^(https?:\/\/[^\s]+\.(jpg|jpeg|png|gif|svg|webp))$/i;
+const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+}
