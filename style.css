@@ -1,0 +1,223 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.cantainer {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  width: 99%;
+  height: 100vh;
+  margin: auto;
+}
+.Sidebar {
+  grid-column: 1/2;
+  grid-row: 1;
+}
+.Sidebar h2 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.MainArea {
+  background-image: url("./workspace.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: grid;
+  grid-column: 2/9;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+.Réception{
+
+}
+.Salledeconférenceé{
+
+}
+.Salledupersonnel{
+
+}
+.Salled’archives{
+
+}
+.Salledesserveur{
+  
+}
+.backmodlform {
+  background-color: rgba(0, 0, 0, 0.55);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.modelformilaire {
+  background-color: white;
+  width: 500px;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.line1form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.line1form h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.4rem;
+  color: rgb(72, 71, 71);
+  margin: 0;
+}
+.fermerformulaire {
+  background: none;
+  border: none;
+  color: grey;
+  font-weight: bold;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.fermerformulaire:hover {
+  color: red;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80%;
+  margin: auto;
+}
+.divform {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form select,
+form input {
+  width: 60%;
+  padding: 0.5rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.4rem;
+  outline: none;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+.form input:focus,
+form select:focus {
+  border-color: black;
+}
+.rounde {
+  display: flex;
+  justify-content: center;
+}
+.rounde img {
+  border-radius: 50%;
+  border: 0.1rem gray dashed;
+  width: 100px;
+}
+.ajouterexperience {
+  background: none;
+  border: solid white 0.1rem;
+  border-radius: 50%;
+  color: gray;
+  font-weight: bold;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+.ajouterexperience:hover {
+  color: rgb(111, 195, 111);
+}
+.ajoutex {
+  display: flex;
+  justify-content: flex-end;
+  width: 60%;
+  gap: 1rem;
+}
+.ajoutex input {
+  width: 90%;
+}
+.btnformajouterpersonel {
+  padding: 0.7rem;
+  width: 100%;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  border: 0.1rem solid white;
+}
+
+.btnformajouterpersonel:hover {
+  background-color: rgb(111, 195, 111);
+  border: 0.1rem solid grey;
+}
+.AddNewWorker {
+  padding: 0.7rem;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  border: 0.1rem solid white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.AddNewWorker:hover {
+  background-color: rgb(111, 195, 111);
+  border: 0.1rem solid grey;
+}
+@media (max-width: 1280px) {
+}
+@media (max-width: 1024px) {
+  .cantainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+      width: 99%;
+      height: 100%;
+  }
+  .Sidebar {
+    grid-row: 1/2;
+    grid-column: 1;
+  }
+  .MainArea {
+    grid-row: 2/9;
+    grid-column: 1;
+    background-image: url(./workspacemobile.jpg);
+  }
+}
+@media (max-width: 768px) {
+  .cantainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 1fr);
+          width: 99%;
+      height: 100%;
+  }
+  .Sidebar {
+    grid-row: 1/2;
+    grid-column: 1;
+  }
+  .MainArea {
+    grid-row: 2/9;
+    grid-column: 1;
+    background-image: url(./workspacemobile.jpg);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+}
+@media (min-width: 1024px) and (max-width: 1279px) and (orientation: landscape) {
+}

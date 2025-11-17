@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WorkSphere</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header></header>
+    <div id="modelform" class="backmodlform">
+      <div class="modelformilaire">
+        <div class="line1form">
+          <h1>Ajouter un personnel</h1>
+          <button type="button" id="fermerformulaire" class="fermerformulaire">x</button>
+        </div>
+        <form id="form" class="form">
+          <div class="divform">
+            <label for="nom">le nom:</label>
+            <input id="nom" type="text" name="nom" placeholder="saisirez votre nom" />
+          </div>
+          <div class="divform">
+            <label>roles autorises:</label>
+            <select>
+              <option value="receptionniste">receptionniste</option>
+              <option value="technicien">technicien</option>
+              <option value="manager">manager</option>
+              <option value="agentdesecurite">agent de securite</option>
+              <option value="nettoyage">nettoyage</option>
+            </select>
+          </div>
+
+          <div class="divform">
+            <label for="photo">photo :</label>
+            <input id="photo" type="url" name="photo" placeholder="saisirez votre photo" />
+          </div>
+          <div id="afficherphoto" class="rounde divform">
+            <img src="https://randomuser.me/api/portraits/women/9.jpg" />
+          </div>
+          <div class="divform">
+            <label for="email">email :</label>
+            <input id="email" type="email" name="email" placeholder="saisirer votre email" />
+          </div>
+          <div class="divform">
+            <label for="telephone">telephone :</label>
+            <input id="telephone" type="text" name="telephone" placeholder="saisirez votre telephone" />
+          </div>
+          <div id="experiences" class="divform">
+            <label id="experiences" for="experiences">experiences :</label>
+            <div class="ajoutex">
+              <div>
+                <input type="text" name="experiences" placeholder="saisirez votre experiences" />
+                <div id="ajoutex"></div>
+              </div>
+              <button id="ajouterexperience" class="ajouterexperience" type="button">+</button>
+            </div>
+          </div>
+          <button id="btnformajouterpersonel" class="btnformajouterpersonel" type="submit">ajouter</button>
+        </form>
+      </div>
+    </div>
+    <main>
+      <div class="cantainer">
+        <div class="Sidebar">
+          <h2>Unassigned Staff</h2>
+          <button id="AddNewWorker" class="AddNewWorker">Add New Worker</button>
+        </div>
+        <div class="MainArea">
+          <div class="Réception"></div>
+          <div class="Salledeconférenceé"></div>
+          <div class="Salledupersonnel"></div>
+          <div class="Salled’archives"></div>
+          <div class="Salledesserveurs"></div>
+          <div class="Salledesécurité"></div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="./javascript.js"></script>
+  </body>
+</html>
