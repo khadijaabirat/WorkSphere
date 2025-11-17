@@ -2,7 +2,7 @@ let Personnel = [
   {
     id: 1,
     nom: "Khadija Abirat",
-    role: "Technicien",
+    role: "technicien",
     photo: "https://randomuser.me/api/portraits/women/1.jpg",
     email: "khadija.abirat@gmail.com",
     telephone: "0612345678",
@@ -47,7 +47,7 @@ let Personnel = [
   {
     id: 6,
     nom: "Hassan El Fassi",
-    role: "Autre",
+    role: "technicien",
     photo: "https://randomuser.me/api/portraits/men/6.jpg",
     email: "hassan.elfassi@gmail.com",
     telephone: "0667890123",
@@ -90,6 +90,46 @@ let Personnel = [
     experiences: ["Entretien bureaux 2022", "Nettoyage salles de réunion", "Gestion déchets"]
   }
 ];
+const zones = [
+  {
+    id: 1,
+    name: "Salle de conférence",
+    allowedRoles: ["receptionniste,manager,nettoyage,technicien,agentdesecurite"], 
+    danschambre:[],
+  },
+  {
+    id: 2,
+    name: "Réception",
+    allowedRoles: ["receptionniste,manager,nettoyage"], 
+    danschambre:[],
+  },
+  {
+    id: 3,
+    name: "Salle des serveurs",
+    allowedRoles: ["technicien,manager,nettoyage"], 
+    danschambre:[],
+  },
+  {
+    id: 4,
+    name: "Salle de sécurité",
+    allowedRoles: ["agentdesecurite,manager,nettoyage"], 
+    danschambre:[],
+  },
+  {
+    id: 5,
+    name: "Salle du personnel",
+    allowedRoles: ["receptionniste,manager,nettoyage,technicien,agentdesecurite"], 
+    danschambre:[],
+  },
+  {
+    id: 6,
+    name: "Salle d’archives",
+    allowedRoles: ["receptionniste,manager,technicien,agentdesecurite"],  
+    danschambre:[],
+  }
+];
+
+
 // btn AddNewWorker 
 const btnAddNewWorker=document.getElementById('AddNewWorker');
 btnAddNewWorker.addEventListener("click",function(){
@@ -152,8 +192,16 @@ fermerformulaire();
 
 }
 function verificationform(nom,select,photo,email,telephone,experiencesarr){
-const nomrejex = /^[a-zA-Z\s\-_]{2,}$/;
-const photorejex= /^(https?:\/\/[^\s]+\.(jpg|jpeg|png|gif|svg|webp))$/i;
-const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+const nomregex = /^[a-zA-Z\s\-_]{2,}$/;
+const photoregex= /^(https?:\/\/[^\s]+\.(jpg|jpeg|png|gif|svg|webp))$/i;
+const emailregex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+const telephoneregex = /^(\+212|0)([ \-]?)([67])(\d{8})$/;
+
+if(!nom || !nomregex.test(nom))
 
 }
+
+// function supprimerpersonel{
+
+// }

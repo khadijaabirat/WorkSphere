@@ -11,7 +11,7 @@ body {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   width: 99%;
-  height: 47rem;
+  height: 47.5rem;
   margin: auto;
 }
 .Sidebar {
@@ -33,8 +33,29 @@ body {
   grid-template-columns: repeat(13, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
+.ajouterpersonelemain{
+  background-color: rgb(111, 195, 111);
+  border: solid white 0.1rem;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0.8rem 0.8rem;
+}
+
+.ajouterpersonelemain:hover {
+  color: rgb(111, 195, 111);
+  background-color: white;
+
+}
 .chambre{
   border: solid 1rem black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 .Réception{
 grid-column:1/6 ;
@@ -200,7 +221,7 @@ form select:focus {
   grid-template-rows: repeat(9, 1fr);
         grid-template-columns: 1fr;
   width: 99%;
-  height: 100%;
+  height:100%;
   margin: auto;
   }
   .Sidebar {
@@ -250,7 +271,7 @@ grid-column: 1/2;
   grid-template-rows: repeat(9, 1fr);
       grid-template-columns: 1fr;
   width: 99%;
-  height: 100%;
+  height:60rem;
   margin: auto;
   }
   .Sidebar {
