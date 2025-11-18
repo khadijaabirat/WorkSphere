@@ -142,6 +142,15 @@ const btnfermerformulaire=document.getElementById('fermerformulaire');
 btnfermerformulaire.addEventListener("click",function(){
   fermerformulaire();
 });
+// afficher limage de personelle
+let photo=document.querySelector('input[name="photo"]');
+let img=document.getElementById('afficherphoto');
+photo.addEventListener("input",function(){
+let inputphoto=photo.value;
+if(inputphoto.trim()!=""){
+img.src=inputphoto;
+}
+});
 //btn ajouter experiences
 const ajouterexperience=document.getElementById('ajouterexperience');
 ajouterexperience.addEventListener("click",function(){
@@ -176,6 +185,7 @@ let experiencesarr = [...experiences].map(input => input.value.trim()).filter(va
 if(!verificationform(nom,select,photo,email,telephone,experiencesarr)){
   return;
 }
+
 let noveaupersonel={
     id: Personnel.length+1,
     nom: nom,
@@ -194,12 +204,34 @@ fermerformulaire();
 function verificationform(nom,select,photo,email,telephone,experiencesarr){
 
 const nomregex = /^[a-zA-Z\s\-_]{2,}$/;
-const photoregex= /^(https?:\/\/[^\s]+\.(jpg|jpeg|png|gif|svg|webp))$/i;
+const photoregex= /^(https?:\/\/[^\s]+\.)$/i;
 const emailregex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 const telephoneregex = /^(\+212|0)([ \-]?)([67])(\d{8})$/;
+let msge=document.getElementById("msgerreur");
+msge.innerHTML="";
 
 if(!nom || !nomregex.test(nom))
+{
+    msge.innerHTML = "Le nom n'est pas valide.";
+    return false;
+}
 
+if(!photo || !photoregex.test(photo))
+{
+    msge.innerHTML = "Le lien de la photo n'est pas valide.";
+    return false;
+}
+if(!email || !emailregex.test(email))
+{
+    msge.innerHTML = "L'email n'est pas valide.";
+    return false;
+}
+if(!telephone || !telephoneregex.test(telephone))
+{
+    msge.innerHTML = "Le numéro de téléphone n'est pas valide.";
+    return false;
+}
+return true;
 }
 
 // function supprimerpersonel{

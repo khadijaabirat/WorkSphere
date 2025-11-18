@@ -17,11 +17,12 @@
         <form id="form" class="form">
           <div class="divform">
             <label for="nom">le nom:</label>
-            <input id="nom" type="text" name="nom" placeholder="saisirez votre nom" />
+            <input id="nom" type="text" name="nom" placeholder="saisirez le nom" />
           </div>
           <div class="divform">
             <label>roles autorises:</label>
             <select>
+              <option value="saisirez le role">saisirez le role</option>
               <option value="receptionniste">receptionniste</option>
               <option value="technicien">technicien</option>
               <option value="manager">manager</option>
@@ -32,29 +33,30 @@
 
           <div class="divform">
             <label for="photo">photo :</label>
-            <input id="photo" type="url" name="photo" placeholder="saisirez votre photo" />
+            <input id="photo" type="url" name="photo" placeholder="saisirez la photo" />
           </div>
-          <div id="afficherphoto" class="rounde divform">
-            <img src="https://randomuser.me/api/portraits/women/9.jpg" />
+          <div class="rounde divform">
+            <img    id="afficherphoto" src="./istockphoto-513727339-612x612.jpg"/>
           </div>
           <div class="divform">
             <label for="email">email :</label>
-            <input id="email" type="email" name="email" placeholder="saisirer votre email" />
+            <input id="email" type="email" name="email" placeholder="saisirer l'email" />
           </div>
           <div class="divform">
             <label for="telephone">telephone :</label>
-            <input id="telephone" type="text" name="telephone" placeholder="saisirez votre telephone" />
+            <input id="telephone" type="text" name="telephone" placeholder="saisirez le telephone" />
           </div>
           <div id="experiences" class="divform">
             <label id="experiences" for="experiences">experiences :</label>
             <div class="ajoutex">
               <div>
-                <input type="text" name="experiences" placeholder="saisirez votre experiences" />
+                <input type="text" name="experiences" placeholder="saisirez l'experiences" />
                 <div id="ajoutex"></div>
               </div>
               <button id="ajouterexperience" class="ajouterexperience" type="button">+</button>
             </div>
           </div>
+                      <p id="msgerreur"></p>
           <button id="btnformajouterpersonel" class="btnformajouterpersonel" type="submit">ajouter</button>
         </form>
       </div>
