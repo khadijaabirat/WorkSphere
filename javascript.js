@@ -100,7 +100,7 @@ const zones = [
   {
     id: 1,
     name: "Salle de conférence",
-allowedRoles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdesecurite"],
+    allowedRoles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdesecurite"],
     danschambre: [],
   },
   {
@@ -134,7 +134,6 @@ allowedRoles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdes
     danschambre: [],
   },
 ];
-
 // btn AddNewWorker
 const btnAddNewWorker = document.getElementById("AddNewWorker");
 btnAddNewWorker.addEventListener("click", function () {
@@ -225,6 +224,7 @@ function ajoutepersonnel() {
     experiences: experiencesarr,
   });
   fermerformulaire();
+  changerSidebar();
 }
 
 function verificationform(nom, select, photo, email, telephone, experiencesarr) {
@@ -288,3 +288,46 @@ if (!Obj.dateDebut || !Obj.dateFin || dateDebut >= dateFin || dateDebut > aujour
 // function supprimerpersonel{
 
 // }
+
+function inzone(){
+let inzone=[];
+zones.forEach(zone=>{
+  zone.danschambre.forEach(Personnelid=>{
+  inzone.push(Personnelid);
+  });
+});
+return inzone;
+}
+
+
+function outzone(){
+let outzone=[];
+Personnel.forEach(Personne=>{
+if(!inzone().includes(Personne.id))
+{ 
+  outzone.push(Personne);
+  }
+});
+return outzone;
+}
+function changerSidebar(){
+  const divpersonelout=document.getElementById('outzone');
+  divpersonelout.innerHTML="";
+  outzone().forEach(persson=>{
+      const personDiv = document.createElement('div');
+  personDiv.className = 'personnel-card'; 
+  personDiv.innerHTML = `
+  <div>
+  <img src="${persson.photo}">
+</div>
+<div>
+  <span>${persson.nom}</span>  
+  <span>${persson.role}</span>
+</div>
+  `;
+  divpersonelout.appendChild(personDiv);
+
+  })
+
+}
+changerSidebar();
