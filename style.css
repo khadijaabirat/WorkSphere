@@ -23,10 +23,12 @@ body {
   justify-content:center;
   align-items:center;
   gap: 0.5rem;
+  padding: 1rem;
+  background-color: #888;
+
 }
 .Sidebar h2 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-
 }
 .MainArea {
   width: 75%;
@@ -58,11 +60,11 @@ body {
 
 }
 .chambre{
-  border: solid 1rem black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: solid black  1rem;
 
 }
 .Réception{
@@ -103,6 +105,28 @@ grid-row: 1/2;
   justify-content: center;
 }
 .modelformilaire {
+  background-color: white;
+  width: 500px;
+  max-height: 90vh;
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.backmodlzone{
+  background-color: rgba(0, 0, 0, 0.55);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.modelzone {
   background-color: white;
   width: 500px;
   max-height: 90vh;
@@ -335,7 +359,7 @@ flex-direction: column;
   grid-template-columns: repeat(3, 1fr);
     width: 100%;
   }
-    .Réception{
+.Réception{
 grid-row:1/6 ;
 grid-column: 1/3;
 }

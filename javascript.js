@@ -27,12 +27,10 @@ let Personnel = [
     id: 3,
     nom: "Yahya enna",
     role: "manager",
-    photo: "https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=400", 
+    photo: "https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=400",
     email: "fatima.bennis@gmail.com",
     telephone: "0634567890",
-    experiences: [
-      { entreprise: "YOUCODE", role: "Chef d'équipe", dateDebut: "2022-01", dateFin: "2024-07" },
-    ],
+    experiences: [{ entreprise: "YOUCODE", role: "Chef d'équipe", dateDebut: "2022-01", dateFin: "2024-07" }],
   },
   {
     id: 4,
@@ -41,9 +39,7 @@ let Personnel = [
     photo: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400", // صورة احترافية لوجه رجل (مناسب لدور الحارس)
     email: "mohamed.elamrani@gmail.com",
     telephone: "0645678901",
-    experiences: [
-      { entreprise: "Secur Plus", role: "Agent de Surveillance", dateDebut: "2021-01", dateFin: "2023-12" },
-    ],
+    experiences: [{ entreprise: "Secur Plus", role: "Agent de Surveillance", dateDebut: "2021-01", dateFin: "2023-12" }],
   },
   {
     id: 5,
@@ -52,9 +48,7 @@ let Personnel = [
     photo: "https://images.pexels.com/photos/4099238/pexels-photo-4099238.jpeg?auto=compress&cs=tinysrgb&w=400", // عاملة نظافة مبتسمة
     email: "sara.choukri@gmail.com",
     telephone: "0656789012",
-    experiences: [
-      { entreprise: "Service Pro", role: "Entretien", dateDebut: "2022-01", dateFin: "2023-12" },
-    ],
+    experiences: [{ entreprise: "Service Pro", role: "Entretien", dateDebut: "2022-01", dateFin: "2023-12" }],
   },
   {
     id: 6,
@@ -63,9 +57,7 @@ let Personnel = [
     photo: "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=400", // رجل تقني يعمل على الأجهزة
     email: "hassan.elfassi@gmail.com",
     telephone: "0667890123",
-    experiences: [
-      { entreprise: "Admin Solutions", role: "Support", dateDebut: "2022-01", dateFin: "2023-12" },
-    ],
+    experiences: [{ entreprise: "Admin Solutions", role: "Support", dateDebut: "2022-01", dateFin: "2023-12" }],
   },
   {
     id: 7,
@@ -74,9 +66,7 @@ let Personnel = [
     photo: "https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=400", // سيدة تعمل باحترافية على حاسوب
     email: "imane.lahlou@gmail.com",
     telephone: "0678901234",
-    experiences: [
-      { entreprise: "IT Group", role: "Maintenance Serveur", dateDebut: "2023-01", dateFin: "2024-07" },
-    ],
+    experiences: [{ entreprise: "IT Group", role: "Maintenance Serveur", dateDebut: "2023-01", dateFin: "2024-07" }],
   },
   {
     id: 8,
@@ -85,9 +75,7 @@ let Personnel = [
     photo: "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=400", // رجل بزي رسمي (حارس أمن)
     email: "rachid.bennis@gmail.com",
     telephone: "0689012345",
-    experiences: [
-      { entreprise: "Patrol Security", role: "Contrôle Accès", dateDebut: "2022-01", dateFin: "2024-07" },
-    ],
+    experiences: [{ entreprise: "Patrol Security", role: "Contrôle Accès", dateDebut: "2022-01", dateFin: "2024-07" }],
   },
   {
     id: 9,
@@ -96,9 +84,7 @@ let Personnel = [
     photo: "https://images.pexels.com/photos/3769720/pexels-photo-3769720.jpeg?auto=compress&cs=tinysrgb&w=400", // سيدة ببدلة مبتسمة (موظفة استقبال)
     email: "meriem.fassi@gmail.com",
     telephone: "0690123456",
-    experiences: [
-      { entreprise: "Bureau Services", role: "Accueil", dateDebut: "2022-01", dateFin: "2024-07" },
-    ],
+    experiences: [{ entreprise: "Bureau Services", role: "Accueil", dateDebut: "2022-01", dateFin: "2024-07" }],
   },
   {
     id: 10,
@@ -107,12 +93,9 @@ let Personnel = [
     photo: "https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&w=400", // رجل يقوم بالتنظيف بمهنية
     email: "ali.elamrani@gmail.com",
     telephone: "0611223344",
-    experiences: [
-      { entreprise: "Clean Masters", role: "Entretien Locaux", dateDebut: "2022-01", dateFin: "2024-07" },
-    ],
+    experiences: [{ entreprise: "Clean Masters", role: "Entretien Locaux", dateDebut: "2022-01", dateFin: "2024-07" }],
   },
 ];
-
 
 const zones = [
   {
@@ -124,31 +107,31 @@ const zones = [
   {
     id: 2,
     name: "Réception",
-    allowedRoles: ["receptionniste","manager","nettoyage"],
+    allowedRoles: ["receptionniste", "manager", "nettoyage"],
     danschambre: [],
   },
   {
     id: 3,
     name: "Salle des serveurs",
-    allowedRoles: ["technicien","manager","nettoyage"],
+    allowedRoles: ["technicien", "manager", "nettoyage"],
     danschambre: [],
   },
   {
     id: 4,
     name: "Salle de sécurité",
-    allowedRoles: ["agentdesecurite","manager","nettoyage"],
+    allowedRoles: ["agentdesecurite", "manager", "nettoyage"],
     danschambre: [],
   },
   {
     id: 5,
     name: "Salle du personnel",
-    allowedRoles: ["receptionniste","manager","nettoyage","technicien","agentdesecurite"],
+    allowedRoles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdesecurite"],
     danschambre: [],
   },
   {
     id: 6,
     name: "Salle d’archives",
-    allowedRoles: ["receptionniste","manager","technicien","agentdesecurite"],
+    allowedRoles: ["receptionniste", "manager", "technicien", "agentdesecurite"],
     danschambre: [],
   },
 ];
@@ -250,8 +233,7 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
   const photoregex = /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp|svg)$/i;
   const emailregex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
   const telephoneregex = /^(\+212|0)([ \-]?)([67])(\d{8})$/;
-    const roleregex = /^[a-zA-Z0-9\s\-_]{2,}$/;
-
+  const roleregex = /^[a-zA-Z0-9\s\-_]{2,}$/;
 
   let msge = document.getElementById("error-msg");
   msge.innerHTML = "";
@@ -279,8 +261,8 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
   }
 
   if (experiencesarr.length > 0) {
-          const aujourduit = new Date();
-                msge.innerHTML = "";
+    const aujourduit = new Date();
+    msge.innerHTML = "";
     for (let i = 0; i < experiencesarr.length; i++) {
       const Obj = experiencesarr[i];
       const dateDebut = new Date(Obj.dateDebut);
@@ -293,8 +275,7 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
         msge.innerHTML = "Le role n'est pas valide.";
         return false;
       }
-if (!Obj.dateDebut || !Obj.dateFin || dateDebut >= dateFin || dateDebut > aujourduit || dateFin > aujourduit)
-        {
+      if (!Obj.dateDebut || !Obj.dateFin || dateDebut >= dateFin || dateDebut > aujourduit) {
         msge.innerHTML = "Les date sont invalides.";
         return false;
       }
@@ -303,76 +284,152 @@ if (!Obj.dateDebut || !Obj.dateFin || dateDebut >= dateFin || dateDebut > aujour
   return true;
 }
 
-// function supprimerpersonel{
-
-// }
-
-function inzone(){
-let inzone=[];
-zones.forEach(zone=>{
-  zone.danschambre.forEach(Personnelid=>{
-  inzone.push(Personnelid);
+function inzone() {
+  let inzone = [];
+  zones.forEach((zone) => {
+    zone.danschambre.forEach((Personnelid) => {
+      inzone.push(Personnelid);
+    });
   });
-});
-return inzone;
+  return inzone;
 }
 
-
-function outzone(){
-let outzone=[];
-Personnel.forEach(Personne=>{
-if(!inzone().includes(Personne.id))
-{ 
-  outzone.push(Personne);
-  }
-});
-return outzone;
+function outzone() {
+  let outzone = [];
+  Personnel.forEach((Personne) => {
+    if (!inzone().includes(Personne.id)) {
+      outzone.push(Personne);
+    }
+  });
+  return outzone;
 }
-function changerSidebar(){
-  const divpersonelout=document.getElementById('outzone');
-  divpersonelout.innerHTML="";
-  outzone().forEach(persson=>{
-      const personDiv = document.createElement('div');
-  personDiv.className = 'personnel-card'; 
-  personDiv.innerHTML = `
+function changerSidebar() {
+  const divpersonelout = document.getElementById("outzone");
+  divpersonelout.innerHTML = "";
+  outzone().forEach((persson) => {
+    const personDiv = document.createElement("div");
+    personDiv.className = "personnel-card";
+    personDiv.innerHTML = `
   <div>
   <img src="${persson.photo}">
 </div>
 <div>
-  <span>${persson.nom}</span>  
+  <span>${persson.nom}: </span>  
   <span>${persson.role}</span>
 </div>
   `;
-  divpersonelout.appendChild(personDiv);
-
-  })
-
+    divpersonelout.appendChild(personDiv);
+  });
 }
 changerSidebar();
 
 let btnreception = document.querySelector(".btnreception");
-btnreception.addEventListener("click",function(){
+  let modelz = document.getElementById("modelzone");
+  const divzon = document.getElementById("divezone");
 
+btnreception.addEventListener("click", function () {
+  modelz.style.display = "flex";
+  divzon.innerHTML = "";
+  outzone().forEach((pesr) => {
+    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
+      const modelzdiv = document.createElement("div");
+      modelzdiv.className = "personnel-card";
+      modelzdiv.innerHTML = `
+  <div> <img src="${pesr.photo}"> </div>
+   <div><span>${pesr.nom}: </span> 
+    <span>${pesr.role}</span></div> `;
+      divzon.appendChild(modelzdiv);
+    }
+  });
 });
 let btnconference = document.querySelector(".btnconference");
-btnconference.addEventListener("click",function(){
-  
+btnconference.addEventListener("click", function () {
+  modelz.style.display = "flex";
+  divzon.innerHTML = "";
+  outzone().forEach((pesr) => {
+    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
+      const modelzdiv = document.createElement("div");
+      modelzdiv.className = "personnel-card";
+      modelzdiv.innerHTML = `
+  <div> <img src="${pesr.photo}"> </div>
+   <div><span>${pesr.nom}: </span> 
+    <span>${pesr.role}</span></div> `;
+      divzon.appendChild(modelzdiv);
+    }
+  });
 });
 let btnpersonnel = document.querySelector(".btnpersonnel");
-btnpersonnel.addEventListener("click",function(){
-  
+btnpersonnel.addEventListener("click", function () {
+  modelz.style.display = "flex";
+  divzon.innerHTML = "";
+  outzone().forEach((pesr) => {
+    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
+      const modelzdiv = document.createElement("div");
+      modelzdiv.className = "personnel-card";
+      modelzdiv.innerHTML = `
+  <div> <img src="${pesr.photo}"> </div>
+   <div><span>${pesr.nom}: </span> 
+    <span>${pesr.role}</span></div> `;
+      divzon.appendChild(modelzdiv);
+    }
+  });
 });
 let btnarchive = document.querySelector(".btnarchive");
-btnarchive.addEventListener("click",function(){
-  
+btnarchive.addEventListener("click", function () {
+  modelz.style.display = "flex";
+  divzon.innerHTML = "";
+  outzone().forEach((pesr) => {
+    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
+      const modelzdiv = document.createElement("div");
+      modelzdiv.className = "personnel-card";
+      modelzdiv.innerHTML = `
+  <div> <img src="${pesr.photo}"> </div>
+   <div><span>${pesr.nom}: </span> 
+    <span>${pesr.role}</span></div> `;
+      divzon.appendChild(modelzdiv);
+    }
+  });
 });
 let btnserveur = document.querySelector(".btnserveur");
-btnserveur.addEventListener("click",function(){
-  
+btnserveur.addEventListener("click", function () {
+  modelz.style.display = "flex";
+  divzon.innerHTML = "";
+  outzone().forEach((pesr) => {
+    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
+      const modelzdiv = document.createElement("div");
+      modelzdiv.className = "personnel-card";
+      modelzdiv.innerHTML = `
+  <div> <img src="${pesr.photo}"> </div>
+   <div><span>${pesr.nom}: </span> 
+    <span>${pesr.role}</span></div> `;
+      divzon.appendChild(modelzdiv);
+    }
+  });
 });
 let btnsecurite = document.querySelector(".btnsecurite");
-btnsecurite.addEventListener("click",function(){
-  
+btnsecurite.addEventListener("click", function () {
+  modelz.style.display = "flex";
+  divzon.innerHTML = "";
+  outzone().forEach((pesr) => {
+    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
+      const modelzdiv = document.createElement("div");
+      modelzdiv.className = "personnel-card";
+      modelzdiv.innerHTML = `
+  <div> <img src="${pesr.photo}"> </div>
+   <div><span>${pesr.nom}: </span> 
+    <span>${pesr.role}</span></div> `;
+      divzon.appendChild(modelzdiv);
+    }
+  });
 });
 
-
+function fermermodelzone() {
+  const modelzon = document.getElementById("modelzone");
+  modelzon.style.display = "none";
+  let divezone = document.getElementById("divezone");
+  divezone.innerHTML = "";
+}
+const btnfermerzone = document.getElementById("btnfermerzone");
+btnfermerzone.addEventListener("click", function () {
+  fermermodelzone();
+});
