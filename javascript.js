@@ -13,15 +13,12 @@ let Personnel = [
   },
   {
     id: 2,
-    nom: "Youssef El Idrissi",
+    nom: "Meriem Fassi",
     role: "receptionniste",
-    photo: "https://images.pexels.com/photos/3769719/pexels-photo-3769719.jpeg?auto=compress&cs=tinysrgb&w=400", // رجل ببدلة مبتسم (موظف استقبال)
-    email: "youssef.elidrissi@gmail.com",
-    telephone: "0623456789",
-    experiences: [
-      { entreprise: "Grand Hotel", role: "Accueil", dateDebut: "2022-01", dateFin: "2022-12" },
-      { entreprise: "City Office", role: "Front Desk", dateDebut: "2023-01", dateFin: "2024-07" },
-    ],
+    photo: "https://images.pexels.com/photos/3769720/pexels-photo-3769720.jpeg?auto=compress&cs=tinysrgb&w=400", // سيدة ببدلة مبتسمة (موظفة استقبال)
+    email: "meriem.fassi@gmail.com",
+    telephone: "0690123456",
+    experiences: [{ entreprise: "Bureau Services", role: "Accueil", dateDebut: "2022-01", dateFin: "2024-07" }],
   },
   {
     id: 3,
@@ -43,51 +40,6 @@ let Personnel = [
   },
   {
     id: 5,
-    nom: "Sara Choukri",
-    role: "nettoyage",
-    photo: "https://images.pexels.com/photos/4099238/pexels-photo-4099238.jpeg?auto=compress&cs=tinysrgb&w=400", // عاملة نظافة مبتسمة
-    email: "sara.choukri@gmail.com",
-    telephone: "0656789012",
-    experiences: [{ entreprise: "Service Pro", role: "Entretien", dateDebut: "2022-01", dateFin: "2023-12" }],
-  },
-  {
-    id: 6,
-    nom: "Hassan El Fassi",
-    role: "technicien",
-    photo: "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=400", // رجل تقني يعمل على الأجهزة
-    email: "hassan.elfassi@gmail.com",
-    telephone: "0667890123",
-    experiences: [{ entreprise: "Admin Solutions", role: "Support", dateDebut: "2022-01", dateFin: "2023-12" }],
-  },
-  {
-    id: 7,
-    nom: "Imane Lahlou",
-    role: "technicien",
-    photo: "https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=400", // سيدة تعمل باحترافية على حاسوب
-    email: "imane.lahlou@gmail.com",
-    telephone: "0678901234",
-    experiences: [{ entreprise: "IT Group", role: "Maintenance Serveur", dateDebut: "2023-01", dateFin: "2024-07" }],
-  },
-  {
-    id: 8,
-    nom: "Rachid Bennis",
-    role: "agentdesecurite",
-    photo: "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=400", // رجل بزي رسمي (حارس أمن)
-    email: "rachid.bennis@gmail.com",
-    telephone: "0689012345",
-    experiences: [{ entreprise: "Patrol Security", role: "Contrôle Accès", dateDebut: "2022-01", dateFin: "2024-07" }],
-  },
-  {
-    id: 9,
-    nom: "Meriem Fassi",
-    role: "receptionniste",
-    photo: "https://images.pexels.com/photos/3769720/pexels-photo-3769720.jpeg?auto=compress&cs=tinysrgb&w=400", // سيدة ببدلة مبتسمة (موظفة استقبال)
-    email: "meriem.fassi@gmail.com",
-    telephone: "0690123456",
-    experiences: [{ entreprise: "Bureau Services", role: "Accueil", dateDebut: "2022-01", dateFin: "2024-07" }],
-  },
-  {
-    id: 10,
     nom: "Ali El Amrani",
     role: "nettoyage",
     photo: "https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&w=400", // رجل يقوم بالتنظيف بمهنية
@@ -113,7 +65,7 @@ const zones = [
   {
     id: 3,
     name: "Salle des serveurs",
-    allowedRoles: ["technicien", "manager", "nettoyage"],
+    allowedRoles: ["technicien", "manager","nettoyage"],
     danschambre: [],
   },
   {
@@ -347,7 +299,7 @@ btnconference.addEventListener("click", function () {
   modelz.style.display = "flex";
   divzon.innerHTML = "";
   outzone().forEach((pesr) => {
-    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
+    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage"|| pesr.role === "technicien"|| pesr.role === "agentdesecurite") {
       const modelzdiv = document.createElement("div");
       modelzdiv.className = "personnel-card";
       modelzdiv.innerHTML = `
@@ -363,7 +315,7 @@ btnpersonnel.addEventListener("click", function () {
   modelz.style.display = "flex";
   divzon.innerHTML = "";
   outzone().forEach((pesr) => {
-    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
+    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage"|| pesr.role === "technicien"|| pesr.role === "agentdesecurite") {
       const modelzdiv = document.createElement("div");
       modelzdiv.className = "personnel-card";
       modelzdiv.innerHTML = `
@@ -379,7 +331,7 @@ btnarchive.addEventListener("click", function () {
   modelz.style.display = "flex";
   divzon.innerHTML = "";
   outzone().forEach((pesr) => {
-    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
+    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "technicien"|| pesr.role === "agentdesecurite") {
       const modelzdiv = document.createElement("div");
       modelzdiv.className = "personnel-card";
       modelzdiv.innerHTML = `
@@ -395,13 +347,14 @@ btnserveur.addEventListener("click", function () {
   modelz.style.display = "flex";
   divzon.innerHTML = "";
   outzone().forEach((pesr) => {
-    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
+    if (pesr.role === "technicien" || pesr.role === "manager" || pesr.role === "nettoyage") {
       const modelzdiv = document.createElement("div");
       modelzdiv.className = "personnel-card";
       modelzdiv.innerHTML = `
   <div> <img src="${pesr.photo}"> </div>
    <div><span>${pesr.nom}: </span> 
-    <span>${pesr.role}</span></div> `;
+    <span>${pesr.role}</span></div> 
+    `;
       divzon.appendChild(modelzdiv);
     }
   });
@@ -411,7 +364,7 @@ btnsecurite.addEventListener("click", function () {
   modelz.style.display = "flex";
   divzon.innerHTML = "";
   outzone().forEach((pesr) => {
-    if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
+    if (pesr.role === "agentdesecurite" || pesr.role === "manager" || pesr.role === "nettoyage") {
       const modelzdiv = document.createElement("div");
       modelzdiv.className = "personnel-card";
       modelzdiv.innerHTML = `
@@ -433,3 +386,5 @@ const btnfermerzone = document.getElementById("btnfermerzone");
 btnfermerzone.addEventListener("click", function () {
   fermermodelzone();
 });
+
+
