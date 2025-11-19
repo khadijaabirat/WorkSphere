@@ -3,7 +3,7 @@ let Personnel = [
     id: 1,
     nom: "Khadija Abirat",
     role: "technicien",
-    photo: "https://randomuser.me/api/portraits/women/1.jpg",
+    photo: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400", // امرأة تقنيّة تعمل على حاسوب
     email: "khadija.abirat@gmail.com",
     telephone: "0612345678",
     experiences: [
@@ -15,7 +15,7 @@ let Personnel = [
     id: 2,
     nom: "Youssef El Idrissi",
     role: "receptionniste",
-    photo: "https://randomuser.me/api/portraits/men/2.jpg",
+    photo: "https://images.pexels.com/photos/3769719/pexels-photo-3769719.jpeg?auto=compress&cs=tinysrgb&w=400", // رجل ببدلة مبتسم (موظف استقبال)
     email: "youssef.elidrissi@gmail.com",
     telephone: "0623456789",
     experiences: [
@@ -25,77 +25,95 @@ let Personnel = [
   },
   {
     id: 3,
-    nom: "Fatima Zahra Bennis",
+    nom: "Yahya enna",
     role: "manager",
-    photo: "https://randomuser.me/api/portraits/women/3.jpg",
+    photo: "https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=400", 
     email: "fatima.bennis@gmail.com",
     telephone: "0634567890",
-    experiences: [{ entreprise: "YOUCODE", role: "Chef d'équipe", dateDebut: "2022-01", dateFin: "2024-07" }],
+    experiences: [
+      { entreprise: "YOUCODE", role: "Chef d'équipe", dateDebut: "2022-01", dateFin: "2024-07" },
+    ],
   },
   {
     id: 4,
     nom: "Mohamed El Amrani",
     role: "agentdesecurite",
-    photo: "https://randomuser.me/api/portraits/men/4.jpg",
+    photo: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400", // صورة احترافية لوجه رجل (مناسب لدور الحارس)
     email: "mohamed.elamrani@gmail.com",
     telephone: "0645678901",
-    experiences: [{ entreprise: "Secur Plus", role: "Agent de Surveillance", dateDebut: "2021-01", dateFin: "2023-12" }],
+    experiences: [
+      { entreprise: "Secur Plus", role: "Agent de Surveillance", dateDebut: "2021-01", dateFin: "2023-12" },
+    ],
   },
   {
     id: 5,
     nom: "Sara Choukri",
     role: "nettoyage",
-    photo: "https://randomuser.me/api/portraits/women/5.jpg",
+    photo: "https://images.pexels.com/photos/4099238/pexels-photo-4099238.jpeg?auto=compress&cs=tinysrgb&w=400", // عاملة نظافة مبتسمة
     email: "sara.choukri@gmail.com",
     telephone: "0656789012",
-    experiences: [{ entreprise: "Service Pro", role: "Entretien", dateDebut: "2022-01", dateFin: "2023-12" }],
+    experiences: [
+      { entreprise: "Service Pro", role: "Entretien", dateDebut: "2022-01", dateFin: "2023-12" },
+    ],
   },
   {
     id: 6,
     nom: "Hassan El Fassi",
     role: "technicien",
-    photo: "https://randomuser.me/api/portraits/men/6.jpg",
+    photo: "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=400", // رجل تقني يعمل على الأجهزة
     email: "hassan.elfassi@gmail.com",
     telephone: "0667890123",
-    experiences: [{ entreprise: "Admin Solutions", role: "Support", dateDebut: "2022-01", dateFin: "2023-12" }],
+    experiences: [
+      { entreprise: "Admin Solutions", role: "Support", dateDebut: "2022-01", dateFin: "2023-12" },
+    ],
   },
   {
     id: 7,
     nom: "Imane Lahlou",
     role: "technicien",
-    photo: "https://randomuser.me/api/portraits/women/7.jpg",
+    photo: "https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=400", // سيدة تعمل باحترافية على حاسوب
     email: "imane.lahlou@gmail.com",
     telephone: "0678901234",
-    experiences: [{ entreprise: "IT Group", role: "Maintenance Serveur", dateDebut: "2023-01", dateFin: "2024-07" }],
+    experiences: [
+      { entreprise: "IT Group", role: "Maintenance Serveur", dateDebut: "2023-01", dateFin: "2024-07" },
+    ],
   },
   {
     id: 8,
     nom: "Rachid Bennis",
     role: "agentdesecurite",
-    photo: "https://randomuser.me/api/portraits/men/8.jpg",
+    photo: "https://images.pexels.com/photos/2034335/pexels-photo-2034335.jpeg?auto=compress&cs=tinysrgb&w=400", // رجل بزي رسمي (حارس أمن)
     email: "rachid.bennis@gmail.com",
     telephone: "0689012345",
-    experiences: [{ entreprise: "Patrol Security", role: "Contrôle Accès", dateDebut: "2022-01", dateFin: "2024-07" }],
+    experiences: [
+      { entreprise: "Patrol Security", role: "Contrôle Accès", dateDebut: "2022-01", dateFin: "2024-07" },
+    ],
   },
   {
     id: 9,
     nom: "Meriem Fassi",
     role: "receptionniste",
-    photo: "https://randomuser.me/api/portraits/women/9.jpg",
+    photo: "https://images.pexels.com/photos/3769720/pexels-photo-3769720.jpeg?auto=compress&cs=tinysrgb&w=400", // سيدة ببدلة مبتسمة (موظفة استقبال)
     email: "meriem.fassi@gmail.com",
     telephone: "0690123456",
-    experiences: [{ entreprise: "Bureau Services", role: "Accueil", dateDebut: "2022-01", dateFin: "2024-07" }],
+    experiences: [
+      { entreprise: "Bureau Services", role: "Accueil", dateDebut: "2022-01", dateFin: "2024-07" },
+    ],
   },
   {
     id: 10,
     nom: "Ali El Amrani",
     role: "nettoyage",
-    photo: "https://randomuser.me/api/portraits/men/10.jpg",
+    photo: "https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&w=400", // رجل يقوم بالتنظيف بمهنية
     email: "ali.elamrani@gmail.com",
     telephone: "0611223344",
-    experiences: [{ entreprise: "Clean Masters", role: "Entretien Locaux", dateDebut: "2022-01", dateFin: "2024-07" }],
+    experiences: [
+      { entreprise: "Clean Masters", role: "Entretien Locaux", dateDebut: "2022-01", dateFin: "2024-07" },
+    ],
   },
 ];
+
+
 const zones = [
   {
     id: 1,
@@ -331,4 +349,30 @@ function changerSidebar(){
 
 }
 changerSidebar();
+
+let btnreception = document.querySelector(".btnreception");
+btnreception.addEventListener("click",function(){
+
+});
+let btnconference = document.querySelector(".btnconference");
+btnconference.addEventListener("click",function(){
+  
+});
+let btnpersonnel = document.querySelector(".btnpersonnel");
+btnpersonnel.addEventListener("click",function(){
+  
+});
+let btnarchive = document.querySelector(".btnarchive");
+btnarchive.addEventListener("click",function(){
+  
+});
+let btnserveur = document.querySelector(".btnserveur");
+btnserveur.addEventListener("click",function(){
+  
+});
+let btnsecurite = document.querySelector(".btnsecurite");
+btnsecurite.addEventListener("click",function(){
+  
+});
+
 
