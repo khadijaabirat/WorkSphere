@@ -51,41 +51,35 @@ let Personnel = [
 
 const zones = [
   {
-    id: 1,
     name: "Salle de conférence",
     allowedRoles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdesecurite"],
     danschambre: [],
   },
   {
-    id: 2,
     name: "Réception",
     allowedRoles: ["receptionniste", "manager", "nettoyage"],
     danschambre: [],
   },
   {
-    id: 3,
-    name: "Salle des serveurs",
-    allowedRoles: ["technicien", "manager","nettoyage"],
+    name: "Salle d’archives",
+    allowedRoles: ["receptionniste", "manager", "technicien", "agentdesecurite"],
     danschambre: [],
   },
-  {
-    id: 4,
-    name: "Salle de sécurité",
-    allowedRoles: ["agentdesecurite", "manager", "nettoyage"],
-    danschambre: [],
-  },
-  {
-    id: 5,
+   {
     name: "Salle du personnel",
     allowedRoles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdesecurite"],
     danschambre: [],
   },
   {
-    id: 6,
-    name: "Salle d’archives",
-    allowedRoles: ["receptionniste", "manager", "technicien", "agentdesecurite"],
+    name: "Salle de sécurité",
+    allowedRoles: ["agentdesecurite", "manager", "nettoyage"],
     danschambre: [],
   },
+  {
+    name: "Salle des serveurs",
+    allowedRoles: ["technicien", "manager","nettoyage"],
+    danschambre: [],
+  }
 ];
 // btn AddNewWorker
 const btnAddNewWorker = document.getElementById("AddNewWorker");
@@ -100,8 +94,8 @@ btnfermerformulaire.addEventListener("click", function () {
   fermerformulaire();
 });
 // afficher limage de personelle
-let photo = document.querySelector('input[name="photo"]');
-let img = document.getElementById("afficherphoto");
+const photo = document.querySelector('input[name="photo"]');
+const img = document.getElementById("afficherphoto");
 photo.addEventListener("input", function () {
   let inputphoto = photo.value;
   if (inputphoto.trim() != "") {
@@ -111,7 +105,7 @@ photo.addEventListener("input", function () {
 //btn ajouter experiences
 const ajouterexperience = document.getElementById("ajouterexperience");
 ajouterexperience.addEventListener("click", function () {
-  let ajoutex = document.getElementById("ajoutex");
+  const ajoutex = document.getElementById("ajoutex");
   let divtex = document.createElement("div");
   divtex.className = "experience";
   divtex.innerHTML = `
@@ -122,7 +116,7 @@ ajouterexperience.addEventListener("click", function () {
                   <button type="button" class="remove-experience">remove experience</button>
                `;
   ajoutex.appendChild(divtex);
-  let btnremoveex = divtex.querySelector(".remove-experience");
+  const btnremoveex = divtex.querySelector(".remove-experience");
   btnremoveex.addEventListener("click", function () {
     divtex.remove();
   });
@@ -137,15 +131,15 @@ function fermerformulaire() {
   document.getElementById("form").reset();
   const form = document.getElementById("modelform");
   form.style.display = "none";
-  let diveajoutex = document.getElementById("ajoutex");
+  const diveajoutex = document.getElementById("ajoutex");
   diveajoutex.innerHTML = "";
 }
 function ajoutepersonnel() {
-  let nom = document.querySelector('input[name="nom"]').value.trim();
-  let select = document.querySelector("select").value;
-  let photo = document.querySelector('input[name="photo"]').value;
-  let email = document.querySelector('input[name="email"]').value.trim();
-  let telephone = document.querySelector('input[name="telephone"]').value.trim();
+  const nom = document.querySelector('input[name="nom"]').value.trim();
+  const select = document.querySelector("select").value;
+  const photo = document.querySelector('input[name="photo"]').value;
+  const email = document.querySelector('input[name="email"]').value.trim();
+  const telephone = document.querySelector('input[name="telephone"]').value.trim();
 
   let experiencesarr = [];
   const experiences = document.querySelectorAll(".experience");
@@ -171,7 +165,7 @@ function ajoutepersonnel() {
     id: Personnel.length + 1,
     nom: nom,
     role: select,
-    photo: photo,
+    photo: photo || "https://media.istockphoto.com/id/1196083861/vector/simple-man-head-icon-set.jpg?s=612x612&w=0&k=20&c=a8fwdX6UKUVCOedN_p0pPszu8B4f6sjarDmUGHngvdM=",
     email: email,
     telephone: telephone,
     experiences: experiencesarr,
@@ -187,7 +181,7 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
   const telephoneregex = /^(\+212|0)([ \-]?)([67])(\d{8})$/;
   const roleregex = /^[a-zA-Z0-9\s\-_]{2,}$/;
 
-  let msge = document.getElementById("error-msg");
+  const msge = document.getElementById("error-msg");
   msge.innerHTML = "";
 
   if (!nom || !nomregex.test(nom)) {
@@ -198,8 +192,7 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
     msge.innerHTML = "le role n'est pas valide.";
     return false;
   }
-
-  if (photo && !photoregex.test(photo)) {
+if (photo && !photoregex.test(photo)) {
     msge.innerHTML = "Le lien de la photo n'est pas valide.";
     return false;
   }
@@ -306,7 +299,8 @@ personDiv.addEventListener("click",function(){
               </div>
              `).join("")}
           </div>
-   </form>`;
+   </form>`; 
+ divinfo.innerHTML="";
 divinfo.appendChild(persoinfo);
 });
     divpersonelout.appendChild(personDiv);
@@ -323,10 +317,8 @@ btnfermerinfoperson.addEventListener("click",function(){
 fermermodelperson();
 });
 
-
-
-let btnreception = document.querySelector(".btnreception");
-  let modelz = document.getElementById("modelzone");
+  const btnreception = document.querySelector(".btnreception");
+  const modelz = document.getElementById("modelzone");
   const divzon = document.getElementById("divezone");
 
 btnreception.addEventListener("click", function () {
@@ -342,16 +334,17 @@ btnreception.addEventListener("click", function () {
     <span>${pesr.role}</span></div> 
 `;
 modelzdiv.addEventListener("click",function(){
-let Réception=document.querySelector('.SRéception');
+const Réception=document.querySelector('.SRéception');
 Réception.appendChild(modelzdiv);
-
+zones[1].danschambre.push(pesr.id);
+changerSidebar();
 });
       divzon.appendChild(modelzdiv);
     }
   });
 });
 
-let btnconference = document.querySelector(".btnconference");
+const btnconference = document.querySelector(".btnconference");
 btnconference.addEventListener("click", function () {
   modelz.style.display = "flex";
   divzon.innerHTML = "";
@@ -364,14 +357,16 @@ btnconference.addEventListener("click", function () {
    <div><span>${pesr.nom}: </span> 
     <span>${pesr.role}</span></div> `;
     modelzdiv.addEventListener("click",function(){
-let Réception=document.querySelector('.Sconférenceé');
-Réception.appendChild(modelzdiv);
+  const Sconférenceé=document.querySelector('.Sconférenceé');
+Sconférenceé.appendChild(modelzdiv);
+zones[0].danschambre.push(pesr.id);
+changerSidebar();
 });
       divzon.appendChild(modelzdiv);
     }
   });
 });
-let btnpersonnel = document.querySelector(".btnpersonnel");
+const btnpersonnel = document.querySelector(".btnpersonnel");
 btnpersonnel.addEventListener("click", function () {
   modelz.style.display = "flex";
   divzon.innerHTML = "";
@@ -384,14 +379,16 @@ btnpersonnel.addEventListener("click", function () {
    <div><span>${pesr.nom}: </span> 
     <span>${pesr.role}</span></div> `;
     modelzdiv.addEventListener("click",function(){
-let Réception=document.querySelector('.Spersonnel');
-Réception.appendChild(modelzdiv);
+  const Spersonnel=document.querySelector('.Spersonnel');
+Spersonnel.appendChild(modelzdiv);
+zones[3].danschambre.push(pesr.id);
+changerSidebar();
 });
       divzon.appendChild(modelzdiv);
     }
   });
 });
-let btnarchive = document.querySelector(".btnarchive");
+const btnarchive = document.querySelector(".btnarchive");
 btnarchive.addEventListener("click", function () {
   modelz.style.display = "flex";
   divzon.innerHTML = "";
@@ -404,14 +401,16 @@ btnarchive.addEventListener("click", function () {
    <div><span>${pesr.nom}: </span> 
     <span>${pesr.role}</span></div> `;
     modelzdiv.addEventListener("click",function(){
-let Réception=document.querySelector('.Sdarchives');
-Réception.appendChild(modelzdiv);
+  const Sdarchives=document.querySelector('.Sdarchives');
+Sdarchives.appendChild(modelzdiv);
+zones[2].danschambre.push(pesr.id);
+changerSidebar();
 });
       divzon.appendChild(modelzdiv);
     }
   });
 });
-let btnserveur = document.querySelector(".btnserveur");
+const btnserveur = document.querySelector(".btnserveur");
 btnserveur.addEventListener("click", function () {
   modelz.style.display = "flex";
   divzon.innerHTML = "";
@@ -425,14 +424,16 @@ btnserveur.addEventListener("click", function () {
     <span>${pesr.role}</span></div>
     `;
         modelzdiv.addEventListener("click",function(){
-let Réception=document.querySelector('.Ssserveur');
-Réception.appendChild(modelzdiv);
+const Ssserveur=document.querySelector('.Ssserveur');
+Ssserveur.appendChild(modelzdiv);
+zones[5].danschambre.push(pesr.id);
+changerSidebar();
 });
       divzon.appendChild(modelzdiv);
     }
   });
 });
-let btnsecurite = document.querySelector(".btnsecurite");
+const btnsecurite = document.querySelector(".btnsecurite");
 btnsecurite.addEventListener("click", function () {
   modelz.style.display = "flex";
   divzon.innerHTML = "";
@@ -445,8 +446,10 @@ btnsecurite.addEventListener("click", function () {
    <div><span>${pesr.nom}: </span> 
     <span>${pesr.role}</span></div> `;
         modelzdiv.addEventListener("click",function(){
-let Réception=document.querySelector('.Ssecurite');
-Réception.appendChild(modelzdiv);
+const Ssecurite=document.querySelector('.Ssecurite');
+Ssecurite.appendChild(modelzdiv);
+zones[4].danschambre.push(pesr.id);
+changerSidebar();
 });
       divzon.appendChild(modelzdiv);
     }
@@ -456,7 +459,7 @@ Réception.appendChild(modelzdiv);
 function fermermodelzone() {
   const modelzon = document.getElementById("modelzone");
   modelzon.style.display = "none";
-  let divezone = document.getElementById("divezone");
+  const divezone = document.getElementById("divezone");
   divezone.innerHTML = "";
 }
 const btnfermerzone = document.getElementById("btnfermerzone");
