@@ -227,7 +227,7 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
         msge.innerHTML = "Le role n'est pas valide.";
         return false;
       }
-      if (!Obj.dateDebut || !Obj.dateFin || dateDebut >= dateFin || dateDebut > aujourduit) {
+      if (!Obj.dateDebut || !Obj.dateFin || dateDebut >= dateFin || dateDebut > aujourduit || dateFin > aujourduit) {
         msge.innerHTML = "Les date sont invalides.";
         return false;
       }
@@ -235,7 +235,7 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
   }
   return true;
 }
-
+// fonction return array fih les id personne li in zoninig
 function inzone() {
   let inzone = [];
   zones.forEach((zone) => {
@@ -245,7 +245,7 @@ function inzone() {
   });
   return inzone;
 }
-
+// fonction return array dyal les id personne li no zoning
 function outzone() {
   let outzone = [];
   Personnel.forEach((Personne) => {
@@ -255,12 +255,17 @@ function outzone() {
   });
   return outzone;
 }
-function changerSidebar() {
+
+// personel no zoning afficher en sidebar b fonction outzone
+
   const divpersonelout = document.getElementById("outzone");
+  const modelperson=document.getElementById("modelpersonel");
+  const divinfo=document.getElementById("diveinfo");
+function changerSidebar() {
   divpersonelout.innerHTML = "";
   outzone().forEach((persson) => {
     const personDiv = document.createElement("div");
-    personDiv.className = "personnel-card";
+    personDiv.className = "personnelcard";
     personDiv.innerHTML = `
   <div>
   <img src="${persson.photo}">
@@ -270,10 +275,55 @@ function changerSidebar() {
   <span>${persson.role}</span>
 </div>
   `;
+  // click sur perssone et afficher leur informations
+personDiv.addEventListener("click",function(){
+  modelperson.style.display="flex";
+  const persoinfo=document.createElement('div');
+  persoinfo.className="personnelcard";
+  persoinfo.innerHTML=`      
+   <form  class="form">
+          <div >
+            <span>le nom:</span> ${persson.nom}            
+          </div>
+          <div >
+            <span>le role:</span> ${persson.role}            
+          </div>
+          <div >
+            <span>photo :</span> <img src="${persson.photo}">
+          </div>
+          <div >
+            <span>email :</span> ${persson.email}
+          </div>
+          <div >
+            <span>telephone :</span> ${persson.telephone}
+          </div>
+          <div >
+            <span>experiences :</span>
+             ${persson.experiences.map(exp=>`
+              <div style="margin-top: 0.6rem">
+              <span>${exp.entreprise} : ${exp.role}  </span>
+              <small>${exp.dateDebut} au ${exp.dateFin}</small>              
+              </div>
+             `).join("")}
+          </div>
+   </form>`;
+divinfo.appendChild(persoinfo);
+});
     divpersonelout.appendChild(personDiv);
   });
 }
 changerSidebar();
+// fermer fermer model personne
+function fermermodelperson() {
+  modelperson.style.display = "none";
+    divinfo.innerHTML="";
+}
+const btnfermerinfoperson=document.getElementById('btnfermerperson');
+btnfermerinfoperson.addEventListener("click",function(){
+fermermodelperson();
+});
+
+
 
 let btnreception = document.querySelector(".btnreception");
   let modelz = document.getElementById("modelzone");
@@ -285,15 +335,22 @@ btnreception.addEventListener("click", function () {
   outzone().forEach((pesr) => {
     if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
       const modelzdiv = document.createElement("div");
-      modelzdiv.className = "personnel-card";
+      modelzdiv.className = "personnelcard divreception";
       modelzdiv.innerHTML = `
   <div> <img src="${pesr.photo}"> </div>
    <div><span>${pesr.nom}: </span> 
-    <span>${pesr.role}</span></div> `;
+    <span>${pesr.role}</span></div> 
+`;
+modelzdiv.addEventListener("click",function(){
+let Réception=document.querySelector('.SRéception');
+Réception.appendChild(modelzdiv);
+
+});
       divzon.appendChild(modelzdiv);
     }
   });
 });
+
 let btnconference = document.querySelector(".btnconference");
 btnconference.addEventListener("click", function () {
   modelz.style.display = "flex";
@@ -301,11 +358,15 @@ btnconference.addEventListener("click", function () {
   outzone().forEach((pesr) => {
     if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage"|| pesr.role === "technicien"|| pesr.role === "agentdesecurite") {
       const modelzdiv = document.createElement("div");
-      modelzdiv.className = "personnel-card";
+      modelzdiv.className = "personnelcard divconference";
       modelzdiv.innerHTML = `
   <div> <img src="${pesr.photo}"> </div>
    <div><span>${pesr.nom}: </span> 
     <span>${pesr.role}</span></div> `;
+    modelzdiv.addEventListener("click",function(){
+let Réception=document.querySelector('.Sconférenceé');
+Réception.appendChild(modelzdiv);
+});
       divzon.appendChild(modelzdiv);
     }
   });
@@ -317,11 +378,15 @@ btnpersonnel.addEventListener("click", function () {
   outzone().forEach((pesr) => {
     if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage"|| pesr.role === "technicien"|| pesr.role === "agentdesecurite") {
       const modelzdiv = document.createElement("div");
-      modelzdiv.className = "personnel-card";
+      modelzdiv.className = "personnelcard divpersonnel";
       modelzdiv.innerHTML = `
   <div> <img src="${pesr.photo}"> </div>
    <div><span>${pesr.nom}: </span> 
     <span>${pesr.role}</span></div> `;
+    modelzdiv.addEventListener("click",function(){
+let Réception=document.querySelector('.Spersonnel');
+Réception.appendChild(modelzdiv);
+});
       divzon.appendChild(modelzdiv);
     }
   });
@@ -333,11 +398,15 @@ btnarchive.addEventListener("click", function () {
   outzone().forEach((pesr) => {
     if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "technicien"|| pesr.role === "agentdesecurite") {
       const modelzdiv = document.createElement("div");
-      modelzdiv.className = "personnel-card";
+      modelzdiv.className = "personnelcard divarchive";
       modelzdiv.innerHTML = `
   <div> <img src="${pesr.photo}"> </div>
    <div><span>${pesr.nom}: </span> 
     <span>${pesr.role}</span></div> `;
+    modelzdiv.addEventListener("click",function(){
+let Réception=document.querySelector('.Sdarchives');
+Réception.appendChild(modelzdiv);
+});
       divzon.appendChild(modelzdiv);
     }
   });
@@ -349,12 +418,16 @@ btnserveur.addEventListener("click", function () {
   outzone().forEach((pesr) => {
     if (pesr.role === "technicien" || pesr.role === "manager" || pesr.role === "nettoyage") {
       const modelzdiv = document.createElement("div");
-      modelzdiv.className = "personnel-card";
+      modelzdiv.className = "personnelcard divserveur";
       modelzdiv.innerHTML = `
-  <div> <img src="${pesr.photo}"> </div>
+   <img src="${pesr.photo}">
    <div><span>${pesr.nom}: </span> 
-    <span>${pesr.role}</span></div> 
+    <span>${pesr.role}</span></div>
     `;
+        modelzdiv.addEventListener("click",function(){
+let Réception=document.querySelector('.Ssserveur');
+Réception.appendChild(modelzdiv);
+});
       divzon.appendChild(modelzdiv);
     }
   });
@@ -366,16 +439,20 @@ btnsecurite.addEventListener("click", function () {
   outzone().forEach((pesr) => {
     if (pesr.role === "agentdesecurite" || pesr.role === "manager" || pesr.role === "nettoyage") {
       const modelzdiv = document.createElement("div");
-      modelzdiv.className = "personnel-card";
+      modelzdiv.className = "personnelcard divsecurite";
       modelzdiv.innerHTML = `
   <div> <img src="${pesr.photo}"> </div>
    <div><span>${pesr.nom}: </span> 
     <span>${pesr.role}</span></div> `;
+        modelzdiv.addEventListener("click",function(){
+let Réception=document.querySelector('.Ssecurite');
+Réception.appendChild(modelzdiv);
+});
       divzon.appendChild(modelzdiv);
     }
   });
 });
-
+// fermer fermer model zone
 function fermermodelzone() {
   const modelzon = document.getElementById("modelzone");
   modelzon.style.display = "none";
