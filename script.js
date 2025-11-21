@@ -50,32 +50,32 @@ let Personnel = [
 ];
 
 const zones = [
-  {
+  { id: 1,
     name: "Salle de conférence",
     allowedRoles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdesecurite"],
     danschambre: [],
   },
-  {
+  { id: 2,
     name: "Réception",
     allowedRoles: ["receptionniste", "manager", "nettoyage"],
     danschambre: [],
   },
-  {
+  { id: 3,
     name: "Salle d’archives",
     allowedRoles: ["receptionniste", "manager", "technicien", "agentdesecurite"],
     danschambre: [],
   },
-  {
+  { id: 4,
     name: "Salle du personnel",
     allowedRoles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdesecurite"],
     danschambre: [],
   },
-  {
+  { id: 5,
     name: "Salle de sécurité",
     allowedRoles: ["agentdesecurite", "manager", "nettoyage"],
     danschambre: [],
   },
-  {
+  { id: 6,
     name: "Salle des serveurs",
     allowedRoles: ["technicien", "manager", "nettoyage"],
     danschambre: [],
@@ -500,4 +500,19 @@ btnfermerzone.addEventListener("click", function () {
   fermermodelzone();
 });
 
-// supprimer personel
+// zone red background
+
+  let array=[];
+for(let i=0;i<zones.length;i++)
+{
+if(zones[i].name!=="Salle de conférence" && zones[i].name!=="Salle du personnel")
+{
+if(zones[i].danschambre.length==0){
+    array.push(zones[i].id);
+}
+}
+}
+for (let j = 0; j < array.length; j++) {
+  
+    zoneDiv.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+}
