@@ -334,6 +334,15 @@ form select:focus {
   object-fit: cover;
 }
 
+.divpersonne{
+  display: flex;
+  flex-direction: row;
+background-color: #8888882b; 
+ width: 90%;
+margin: auto auto;
+border-radius: 1rem;
+}
+
 @media (max-width: 1280px) {
 }
 @media (max-width: 1024px) {

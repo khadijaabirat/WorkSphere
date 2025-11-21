@@ -331,6 +331,7 @@ btnreception.addEventListener("click", function () {
   outzone().forEach((pesr) => {
     if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
       const modelzdiv = document.createElement("div");
+      modelzdiv.className = "divpersonne";      
       const modelzdiv2 = document.createElement("div");
       modelzdiv2.className = "personnelcard divreception";
       modelzdiv2.innerHTML = `
