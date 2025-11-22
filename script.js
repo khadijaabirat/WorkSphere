@@ -358,12 +358,14 @@ modelz.style.display = "flex";
           }
         }
         changerSidebar();
+        redzone();
       });
       modelzdiv2.addEventListener("click", function () {
         const Reception = document.getElementById(zones[idx].name);
         Reception.appendChild(modelzdiv);
         zones[idx].danschambre.push(pesr.id);
         changerSidebar();
+        redzone();
       });
       divzon.appendChild(modelzdiv);
     }
@@ -506,14 +508,19 @@ btnfermerzone.addEventListener("click", function () {
 });
 
 // zone red background
-
-let array = [];
+function redzone(){
 for (let i = 0; i < zones.length; i++) {
-  if (zones[i].name !== "Salle de conférence" && zones[i].name !== "Salle du personnel") {
-    if (zones[i].danschambre.length == 0) {
-      array.push(zones[i].id);
+  if (zones[i].name !== "Salle de conférence" && zones[i].name !== "Salle du personnel")
+     {
+    if (!zones[i].danschambre.length) {
+let divzone=document.querySelector("."+zones[i].name);
+  divzone.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+    }
+    else{
+      let divzone=document.querySelector("."+zones[i].name);
+divzone.style.background = "transparent";
     }
   }
 }
-  divzon.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
-
+}
+redzone();
