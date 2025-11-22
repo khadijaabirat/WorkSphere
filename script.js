@@ -3,7 +3,7 @@ let Personnel = [
     id: 1,
     nom: "Khadija Abirat",
     role: "technicien",
-    photo: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400", // امرأة تقنيّة تعمل على حاسوب
+    photo: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=400",
     email: "khadija.abirat@gmail.com",
     telephone: "0612345678",
     experiences: [
@@ -15,7 +15,7 @@ let Personnel = [
     id: 2,
     nom: "Meriem Fassi",
     role: "receptionniste",
-    photo: "https://images.pexels.com/photos/3769720/pexels-photo-3769720.jpeg?auto=compress&cs=tinysrgb&w=400", // سيدة ببدلة مبتسمة (موظفة استقبال)
+    photo: "https://images.pexels.com/photos/3769720/pexels-photo-3769720.jpeg?auto=compress&cs=tinysrgb&w=400",
     email: "meriem.fassi@gmail.com",
     telephone: "0690123456",
     experiences: [{ entreprise: "Bureau Services", role: "Accueil", dateDebut: "2022-01", dateFin: "2024-07" }],
@@ -31,9 +31,9 @@ let Personnel = [
   },
   {
     id: 4,
-    nom: "Mohamed El Amrani",
+    nom: "Mohamed Amrani",
     role: "agentdesecurite",
-    photo: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400", // صورة احترافية لوجه رجل (مناسب لدور الحارس)
+    photo: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400",
     email: "mohamed.elamrani@gmail.com",
     telephone: "0645678901",
     experiences: [{ entreprise: "Secur Plus", role: "Agent de Surveillance", dateDebut: "2021-01", dateFin: "2023-12" }],
@@ -42,7 +42,7 @@ let Personnel = [
     id: 5,
     nom: "Ali El Amrani",
     role: "nettoyage",
-    photo: "https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&w=400", // رجل يقوم بالتنظيف بمهنية
+    photo: "https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&w=400",
     email: "ali.elamrani@gmail.com",
     telephone: "0611223344",
     experiences: [{ entreprise: "Clean Masters", role: "Entretien Locaux", dateDebut: "2022-01", dateFin: "2024-07" }],
@@ -257,15 +257,17 @@ const divinfo = document.getElementById("diveinfo");
 function changerSidebar() {
   divpersonelout.innerHTML = "";
   outzone().forEach((persson) => {
+    const principale=document.createElement("div");
+    principale.className="principalediv";
     const personDiv = document.createElement("div");
     personDiv.className = "personnelcard";
     personDiv.innerHTML = `
   <div>
   <img src="${persson.photo}">
 </div>
-<div>
-  <span>${persson.nom}: </span>  
-  <span>${persson.role}</span>
+<div >
+  <p>${persson.nom} :</p>
+  <span>${persson.role} </span>  
 </div>
   `;
     // click sur perssone et afficher leur informations
@@ -274,7 +276,7 @@ function changerSidebar() {
       const persoinfo = document.createElement("div");
       persoinfo.className = "personnelcard";
       persoinfo.innerHTML = `      
-   <form  class="form">
+      <form  class="form">
           <div >
             <span>le nom:</span> ${persson.nom}            
           </div>
@@ -307,7 +309,26 @@ function changerSidebar() {
       divinfo.innerHTML = "";
       divinfo.appendChild(persoinfo);
     });
-    divpersonelout.appendChild(personDiv);
+        principale.appendChild(personDiv);
+            principale.innerHTML+=`<div class="actions">
+     <button class="modiffier"><i class="fa-solid fa-pen"></i></button>
+  <button class="supprimer"><i class="fa-solid fa-trash"></i></button>
+</div>
+  `;
+  const btnsprm=principale.querySelector('.supprimer');
+  btnsprm.addEventListener("click",function(){
+    principale.remove();
+    let novarr=[];
+    for(let i=0;i<Personnel.length;i++){
+      if(Personnel[i].id!=persson.id){
+        novarr.push(Personnel[i]);
+      }
+    }
+    Personnel=novarr;
+  });
+
+  
+    divpersonelout.appendChild(principale);
   });
 }
 changerSidebar();
@@ -321,13 +342,11 @@ btnfermerinfoperson.addEventListener("click", function () {
   fermermodelperson();
 });
 
-
 const modelz = document.getElementById("modelzone");
 const divzon = document.getElementById("divezone");
 
-function zone(idx)
-{
-modelz.style.display = "flex";
+function zone(idx) {
+  modelz.style.display = "flex";
   divzon.innerHTML = "";
   outzone().forEach((pesr) => {
     // if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
@@ -372,128 +391,29 @@ modelz.style.display = "flex";
   });
 }
 
-
 const btnconference = document.querySelector(".btnconference");
 btnconference.addEventListener("click", function () {
   zone(0);
-//   modelz.style.display = "flex";
-//   divzon.innerHTML = "";
-//   outzone().forEach((pesr) => {
-//     const modelzdiv = document.createElement("div");
-//     modelzdiv.className = "personnelcard";
-//     modelzdiv.innerHTML = `
-//   <div> <img src="${pesr.photo}"> </div>
-//    <div><span>${pesr.nom}: </span> 
-//     <span>${pesr.role}</span></div> 
-// `;
-//     modelzdiv.addEventListener("click", function () {
-//       const Sconference = document.querySelector(".Sconference");
-//       Sconference.appendChild(modelzdiv);
-//       zones[0].danschambre.push(pesr.id);
-//       changerSidebar();
-//     });
-//     divzon.appendChild(modelzdiv);
-//   });
 });
 const btnreception = document.querySelector(".btnreception");
 btnreception.addEventListener("click", function () {
   zone(1);
 });
-
 const btnpersonnel = document.querySelector(".btnpersonnel");
 btnpersonnel.addEventListener("click", function () {
-zone(3);
-//   modelz.style.display = "flex";
-//   divzon.innerHTML = "";
-//   outzone().forEach((pesr) => {
-//     const modelzdiv = document.createElement("div");
-//     modelzdiv.className = "personnelcard";
-//     modelzdiv.innerHTML = `
-//   <div> <img src="${pesr.photo}"> </div>
-//    <div><span>${pesr.nom}: </span> 
-//     <span>${pesr.role}</span></div>
-//  `;
-//     modelzdiv.addEventListener("click", function () {
-//       const Spersonnel = document.querySelector(".Spersonnel");
-//       Spersonnel.appendChild(modelzdiv);
-//       zones[3].danschambre.push(pesr.id);
-//       changerSidebar();
-//     });
-//     divzon.appendChild(modelzdiv);
-//   });
+  zone(3);
 });
-
 const btnarchive = document.querySelector(".btnarchive");
 btnarchive.addEventListener("click", function () {
   zone(2);
-  // modelz.style.display = "flex";
-  // divzon.innerHTML = "";
-  // outzone().forEach((pesr) => {
-  //   // if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "technicien" || pesr.role === "agentdesecurite") {
-  //     const modelzdiv = document.createElement("div");
-  //     modelzdiv.className = "personnelcard";
-  //     modelzdiv.innerHTML = `
-  // <div> <img src="${pesr.photo}"> </div>
-  //  <div><span>${pesr.nom}: </span> 
-  //   <span>${pesr.role}</span></div>
-  //    `;
-  //     modelzdiv.addEventListener("click", function () {
-  //       const Sdarchives = document.querySelector(".Sdarchives");
-  //       Sdarchives.appendChild(modelzdiv);
-  //       zones[2].danschambre.push(pesr.id);
-  //       changerSidebar();
-  //     });
-  //     divzon.appendChild(modelzdiv);
-  //   }
-  // });
 });
 const btnserveur = document.querySelector(".btnserveur");
 btnserveur.addEventListener("click", function () {
   zone(5);
-  // modelz.style.display = "flex";
-  // divzon.innerHTML = "";
-  // outzone().forEach((pesr) => {
-  //   // if (pesr.role === "technicien" || pesr.role === "manager" || pesr.role === "nettoyage") {
-  //     const modelzdiv = document.createElement("div");
-  //     modelzdiv.className = "personnelcard";
-  //     modelzdiv.innerHTML = `
-  //  <img src="${pesr.photo}">
-  //  <div><span>${pesr.nom}: </span> 
-  //   <span>${pesr.role}</span></div>
-  //   `;
-  //     modelzdiv.addEventListener("click", function () {
-  //       const Ssserveur = document.querySelector(".Ssserveur");
-  //       Ssserveur.appendChild(modelzdiv);
-  //       zones[5].danschambre.push(pesr.id);
-  //       changerSidebar();
-  //     });
-  //     divzon.appendChild(modelzdiv);
-  //   }
-  // });
 });
 const btnsecurite = document.querySelector(".btnsecurite");
 btnsecurite.addEventListener("click", function () {
   zone(4);
-//   modelz.style.display = "flex";
-//   divzon.innerHTML = "";
-//   outzone().forEach((pesr) => {
-//     if (pesr.role === "agentdesecurite" || pesr.role === "manager" || pesr.role === "nettoyage") {
-//       const modelzdiv = document.createElement("div");
-//       modelzdiv.className = "personnelcard";
-//       modelzdiv.innerHTML = `
-//   <div> <img src="${pesr.photo}"> </div>
-//    <div><span>${pesr.nom}: </span> 
-//     <span>${pesr.role}</span></div> 
-// `;
-//       modelzdiv.addEventListener("click", function () {
-//         const Ssecurite = document.querySelector(".Ssecurite");
-//         Ssecurite.appendChild(modelzdiv);
-//         zones[4].danschambre.push(pesr.id);
-//         changerSidebar();
-//       });
-//       divzon.appendChild(modelzdiv);
-//     }
-//   });
 });
 // fermer fermer model zone
 function fermermodelzone() {
@@ -508,19 +428,21 @@ btnfermerzone.addEventListener("click", function () {
 });
 
 // zone red background
-function redzone(){
-for (let i = 0; i < zones.length; i++) {
-  if (zones[i].name !== "Salle de conférence" && zones[i].name !== "Salle du personnel")
-     {
-    if (!zones[i].danschambre.length) {
-let divzone=document.querySelector("."+zones[i].name);
-  divzone.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
-    }
-    else{
-      let divzone=document.querySelector("."+zones[i].name);
-divzone.style.background = "transparent";
+function redzone() {
+  for (let i = 0; i < zones.length; i++) {
+    if (zones[i].name !== "Sconfrence" && zones[i].name !== "Spersonnel") {
+      if (!zones[i].danschambre.length) {
+        let divzone = document.querySelector("." + zones[i].name);
+        divzone.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
+      } else {
+        let divzone = document.querySelector("." + zones[i].name);
+        divzone.style.background = "transparent";
+      }
     }
   }
 }
-}
 redzone();
+// supprimer personne
+//animation css
+//modifier personel
+//localstorg
