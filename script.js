@@ -7,8 +7,8 @@ let Personnel = [
     email: "khadija.abirat@gmail.com",
     telephone: "0612345678",
     experiences: [
-      { entreprise: "Tech Solutions", role: "Stage IT", dateDebut: "2023-01", dateFin: "2023-06" },
-      { entreprise: "NetCom Maroc", role: "Maintenance réseaux", dateDebut: "2024-01", dateFin: "2024-06" },
+      { nomex: "Tech Solutions", roleex: "Stage IT", dateDebut: "2023-01", dateFin: "2023-06" },
+      { nomex: "NetCom Maroc", roleex: "Maintenance réseaux", dateDebut: "2024-01", dateFin: "2024-06" },
     ],
   },
   {
@@ -18,7 +18,7 @@ let Personnel = [
     photo: "https://images.pexels.com/photos/3769720/pexels-photo-3769720.jpeg?auto=compress&cs=tinysrgb&w=400",
     email: "meriem.fassi@gmail.com",
     telephone: "0690123456",
-    experiences: [{ entreprise: "Bureau Services", role: "Accueil", dateDebut: "2022-01", dateFin: "2024-07" }],
+    experiences: [{ nomex: "Bureau Services", roleex: "Accueil", dateDebut: "2022-01", dateFin: "2024-07" }],
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ let Personnel = [
     photo: "https://images.pexels.com/photos/834863/pexels-photo-834863.jpeg?auto=compress&cs=tinysrgb&w=400",
     email: "fatima.bennis@gmail.com",
     telephone: "0634567890",
-    experiences: [{ entreprise: "YOUCODE", role: "Chef d'équipe", dateDebut: "2022-01", dateFin: "2024-07" }],
+    experiences: [{ nomex: "YOUCODE", roleex: "Chef d'équipe", dateDebut: "2022-01", dateFin: "2024-07" }],
   },
   {
     id: 4,
@@ -36,7 +36,7 @@ let Personnel = [
     photo: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400",
     email: "mohamed.elamrani@gmail.com",
     telephone: "0645678901",
-    experiences: [{ entreprise: "Secur Plus", role: "Agent de Surveillance", dateDebut: "2021-01", dateFin: "2023-12" }],
+    experiences: [{ nomex: "Secur Plus", roleex: "Agent de Surveillance", dateDebut: "2021-01", dateFin: "2023-12" }],
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ let Personnel = [
     photo: "https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&w=400",
     email: "ali.elamrani@gmail.com",
     telephone: "0611223344",
-    experiences: [{ entreprise: "Clean Masters", role: "Entretien Locaux", dateDebut: "2022-01", dateFin: "2024-07" }],
+    experiences: [{ nomex: "Clean Masters", roleex: "Entretien Locaux", dateDebut: "2022-01", dateFin: "2024-07" }],
   },
 ];
 
@@ -135,27 +135,32 @@ function fermerformulaire() {
   diveajoutex.innerHTML = "";
 }
 function ajoutepersonnel() {
-  const nom = document.querySelector('input[name="nom"]').value.trim();
-  const select = document.querySelector("select").value;
-  const photo = document.querySelector('input[name="photo"]').value;
-  const email = document.querySelector('input[name="email"]').value.trim();
-  const telephone = document.querySelector('input[name="telephone"]').value.trim();
+  const nom = document.querySelector('input[name="nom"]');
+  const select = document.querySelector("select");
+  const photo = document.querySelector('input[name="photo"]');
+  const email = document.querySelector('input[name="email"]');
+  const telephone = document.querySelector('input[name="telephone"]');
 
   let experiencesarr = [];
   const experiences = document.querySelectorAll(".experience");
   experiences.forEach((div) => {
-    const nameInput = div.querySelector('input[name="experience_name"]').value.trim();
-    const experienceRole = div.querySelector('input[name="experience_role"]').value.trim();
-    const start_date = div.querySelector('input[name="start_date"]').value;
-    const end_date = div.querySelector('input[name="end_date"]').value;
+    const nameInput = div.querySelector('input[name="experience_name"]');
+    const experienceRole = div.querySelector('input[name="experience_role"]');
+    const start_date = div.querySelector('input[name="start_date"]');
+    const end_date = div.querySelector('input[name="end_date"]');
 
     experiencesarr.push({
-      nom: nameInput,
-      role: experienceRole,
-      dateDebut: start_date,
-      dateFin: end_date,
+      nomex: nameInput.value.trim(),
+      roleex: experienceRole.value.trim(),
+      dateDebut: start_date.value,
+      dateFin: end_date.value,
     });
   });
+nom.style.backgroundColor = "";
+select.style.backgroundColor = "";
+photo.style.backgroundColor = "";
+email.style.backgroundColor = "";
+telephone.style.backgroundColor = "";
 
   if (!verificationform(nom, select, photo, email, telephone, experiencesarr)) {
     return;
@@ -163,11 +168,11 @@ function ajoutepersonnel() {
 
   Personnel.push({
     id: Personnel.length + 1,
-    nom: nom,
-    role: select,
-    photo: photo || "https://media.istockphoto.com/id/1196083861/vector/simple-man-head-icon-set.jpg?s=612x612&w=0&k=20&c=a8fwdX6UKUVCOedN_p0pPszu8B4f6sjarDmUGHngvdM=",
-    email: email,
-    telephone: telephone,
+    nom: nom.value.trim(),
+    role: select.value,
+    photo: photo.value.trim() || "https://media.istockphoto.com/id/1196083861/vector/simple-man-head-icon-set.jpg?s=612x612&w=0&k=20&c=a8fwdX6UKUVCOedN_p0pPszu8B4f6sjarDmUGHngvdM=",
+    email: email.value.trim(),
+    telephone: telephone.value.trim(),
     experiences: experiencesarr,
   });
   fermerformulaire();
@@ -184,24 +189,34 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
   const msge = document.getElementById("error-msg");
   msge.innerHTML = "";
 
-  if (!nom || !nomregex.test(nom)) {
+  if (!nom.value.trim() || !nomregex.test(nom.value.trim())) {
+    msge.style.display = "flex";
     msge.innerHTML = "Le nom n'est pas valide.";
+    nom.style.backgroundColor = "#e80e0e65";
     return false;
   }
-  if (!select || select === "default") {
+if (!select.value || select.value === "default") {
+    msge.style.display = "flex";
     msge.innerHTML = "le role n'est pas valide.";
+    select.style.backgroundColor = "#e80e0e65";
     return false;
   }
-  if (photo && !photoregex.test(photo)) {
+  if (photo.value.trim() && !photoregex.test(photo.value.trim())) {
+    msge.style.display = "flex";
     msge.innerHTML = "Le lien de la photo n'est pas valide.";
+    photo.style.backgroundColor = "#e80e0e65";
     return false;
   }
-  if (!email || !emailregex.test(email)) {
+  if (!email.value.trim() || !emailregex.test(email.value.trim())) {
+    msge.style.display = "flex";
     msge.innerHTML = "L'email n'est pas valide.";
+    email.style.backgroundColor = "#e80e0e65";
     return false;
   }
-  if (!telephone || !telephoneregex.test(telephone)) {
+  if (!telephone.value.trim() || !telephoneregex.test(telephone.value.trim())) {
+    msge.style.display = "flex";
     msge.innerHTML = "Le numero de telephone n'est pas valide.";
+    telephone.style.backgroundColor = "#e80e0e65";
     return false;
   }
 
@@ -212,11 +227,13 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
       const Obj = experiencesarr[i];
       const dateDebut = new Date(Obj.dateDebut);
       const dateFin = new Date(Obj.dateFin);
-      if (!Obj.nom || !nomregex.test(Obj.nom)) {
+      if (!Obj.nomex || !nomregex.test(Obj.nomex)) {
+        msge.style.display = "flex";
         msge.innerHTML = "Le nom de  l'experience n'est pas valide.";
         return false;
       }
-      if (!Obj.role || !roleregex.test(Obj.role)) {
+      if (!Obj.roleex || !roleregex.test(Obj.roleex)) {
+        msge.style.display = "flex";
         msge.innerHTML = "Le role n'est pas valide.";
         return false;
       }
@@ -226,6 +243,7 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
       }
     }
   }
+
   return true;
 }
 // fonction return array fih les id personne li in zoninig
@@ -257,15 +275,15 @@ const divinfo = document.getElementById("diveinfo");
 function changerSidebar() {
   divpersonelout.innerHTML = "";
   outzone().forEach((persson) => {
-    const principale=document.createElement("div");
-    principale.className="principalediv";
+    const principale = document.createElement("div");
+    principale.className = "principalediv";
     const personDiv = document.createElement("div");
     personDiv.className = "personnelcard";
     personDiv.innerHTML = `
   <div>
   <img src="${persson.photo}">
 </div>
-<div >
+<div class="prsnNR">
   <p>${persson.nom} :</p>
   <span>${persson.role} </span>  
 </div>
@@ -274,60 +292,55 @@ function changerSidebar() {
     personDiv.addEventListener("click", function () {
       modelperson.style.display = "flex";
       const persoinfo = document.createElement("div");
-      persoinfo.className = "personnelcard";
+      persoinfo.className = "personnelinfo";
       persoinfo.innerHTML = `      
-      <form  class="form">
+      <form  class="forminfo">
+          <div class="info1line">
           <div >
-            <span>le nom:</span> ${persson.nom}            
+          <img src="${persson.photo}">
           </div>
           <div >
-            <span>le role:</span> ${persson.role}            
-          </div>
-          <div >
-            <span>photo :</span> <img src="${persson.photo}">
-          </div>
-          <div >
-            <span>email :</span> ${persson.email}
-          </div>
-          <div >
-            <span>telephone :</span> ${persson.telephone}
-          </div>
+            <span>le nom:</span> <p>${persson.nom}</p>            
+            <span>le role:</span> <p>${persson.role}</p>            
+            <span>email :</span> <p>${persson.email}</p>
+            <span>telephone :</span> <p>${persson.telephone}</p>
+          </div >
+          </div >
           <div >
             <span>experiences :</span>
-             ${persson.experiences
-               .map(
+             ${persson.experiences.map(
                  (exp) => `
               <div style="margin-top: 0.6rem">
-              <span>${exp.entreprise} : ${exp.role}  </span>
+              <span>${exp.nomex} : ${exp.roleex}  </span>
               <small>${exp.dateDebut} au ${exp.dateFin}</small>              
-              </div>
-             `
-               )
-               .join("")}
+              </div>`).join("")}
           </div>
    </form>`;
       divinfo.innerHTML = "";
       divinfo.appendChild(persoinfo);
     });
-        principale.appendChild(personDiv);
-            principale.innerHTML+=`<div class="actions">
+    principale.appendChild(personDiv);
+    const divaction = document.createElement("div");
+    divaction.className = "actions";
+    divaction.innerHTML = `
      <button class="modiffier"><i class="fa-solid fa-pen"></i></button>
   <button class="supprimer"><i class="fa-solid fa-trash"></i></button>
-</div>
   `;
-  const btnsprm=principale.querySelector('.supprimer');
-  btnsprm.addEventListener("click",function(){
-    principale.remove();
-    let novarr=[];
-    for(let i=0;i<Personnel.length;i++){
-      if(Personnel[i].id!=persson.id){
-        novarr.push(Personnel[i]);
+    principale.appendChild(divaction);
+    const btnsprm = principale.querySelector(".supprimer");
+    btnsprm.addEventListener("click", function () {
+      principale.remove();
+      let novarr = [];
+      for (let i = 0; i < Personnel.length; i++) {
+        if (Personnel[i].id != persson.id) {
+          novarr.push(Personnel[i]);
+        }
       }
-    }
-    Personnel=novarr;
-  });
-
-  
+      Personnel = novarr;
+    });
+    //  const btnmodif=principale.querySelector('.modiffier');
+    //  btnmodif.addEventListener("click",function(){
+    //  });
     divpersonelout.appendChild(principale);
   });
 }
@@ -349,15 +362,14 @@ function zone(idx) {
   modelz.style.display = "flex";
   divzon.innerHTML = "";
   outzone().forEach((pesr) => {
-    // if (pesr.role === "receptionniste" || pesr.role === "manager" || pesr.role === "nettoyage") {
     if (zones[idx].roles.includes(pesr.role)) {
       const modelzdiv = document.createElement("div");
       modelzdiv.className = "divpersonne";
       const modelzdiv2 = document.createElement("div");
-      modelzdiv2.className = "personnelcard";
+      modelzdiv2.className = "personnelcardzone";
       modelzdiv2.innerHTML = `
        <div> <img src="${pesr.photo}"> </div>
-        <div><span>${pesr.nom}: </span> 
+       <div><span>${pesr.nom}: </span> 
        <span>${pesr.role}</span></div>
        `;
       modelzdiv.appendChild(modelzdiv2);
@@ -380,8 +392,8 @@ function zone(idx) {
         redzone();
       });
       modelzdiv2.addEventListener("click", function () {
-        const Reception = document.getElementById(zones[idx].name);
-        Reception.appendChild(modelzdiv);
+        const zonex = document.getElementById(zones[idx].name);
+        zonex.appendChild(modelzdiv);
         zones[idx].danschambre.push(pesr.id);
         changerSidebar();
         redzone();
@@ -442,7 +454,7 @@ function redzone() {
   }
 }
 redzone();
-// supprimer personne
 //animation css
 //modifier personel
 //localstorg
+//max

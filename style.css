@@ -8,15 +8,15 @@ body {
 }
 .cantainer {
   display: flex;
-  justify-content: space-around;
-  gap: 0.5rem;
+  justify-content: space-evenly;
+  gap: 1rem;
   width: 100%;
   height: 100%;
 }
 .Sidebar {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   gap: 0.5rem;
   padding: 1rem;
@@ -25,19 +25,49 @@ body {
   border-radius: 1rem;
   box-shadow: -0.4rem 0.4rem 0.6rem 0.4rem rgba(0, 0, 0, 0.579);
 }
-.Sidebar h2 {
+.Sidebar h3 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 1.4rem;
+}
+.AddNewWorker {
+  padding: 0.7rem;
+  background-color: gray;
+  color:white;
+  border-radius: 2rem;
+  font-size: 1rem;
+  border: 0.1rem solid rgb(111, 195, 111);
+  cursor: pointer;
+  transition: 0.5s;
+}
+.AddNewWorker:hover {
+  background-color: rgb(111, 195, 111);
+  border: 0.1rem solid grey;
+  color: white;
 }
 .fls {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  gap: 0.5rem;
+}
+.outzone {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 0.8rem;
+  width: 100%;
 }
 .principalediv{
   display: flex;
   flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background-color: #0000002c;
+  border-radius: 1rem;
+  box-shadow: -0.1rem 0.1rem 0.2rem 0.1rem rgba(0, 0, 0, 0.579);
 }
 .actions {
   display: flex;
@@ -52,7 +82,7 @@ body {
   font-size: 1rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 
 .modiffier:hover {
@@ -67,14 +97,12 @@ body {
 .personnelcard {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content:flex-start;
   gap: 0.5rem;
   align-items: center;
-  padding: 0.5rem;
-  border: 0.1rem solid #ccc;
   border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.132);
   cursor: pointer;
+  width: 100%;
 }
 
 .personnelcard img {
@@ -85,11 +113,121 @@ body {
 }
 .personnelcard span {
   font-size: 0.8rem;
-  color: white;
-  background-color: #888;
+  color: rgb(0, 0, 0);
+  background-color: #88888834;
   border-radius: 2rem;
   padding: 0.5rem 0.5rem;
+  text-align: center;
+  width: 100%;
+    font-weight: 200;
+transition: 0.5s;
 }
+.personnelcard span:hover {
+  color: white;
+  background-color: #888;
+}
+.personnelcard p {
+  font-size: 0.8rem;
+  color: rgb(0, 0, 0);
+  font-weight: 300;
+  border-radius: 2rem;
+}
+.prsnNR{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.personnelinfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+.personnelinfo img {
+  width:200px;
+  height:200px;
+  border-radius:2rem;
+  object-fit: cover;
+}
+.personnelinfo span {
+  font-size: 0.8rem;
+  color: rgb(0, 0, 0);
+  width: 100%;
+  font-weight: 200;
+}
+.personnelinfo p {
+  font-size: 0.8rem;
+  color: rgb(0, 0, 0);
+  font-weight: 300;
+  border-radius: 2rem;
+}
+.forminfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 90%;
+  margin: auto;
+  max-height: 70vh;
+  padding-right: 15px;
+}
+.info1line{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+
+.divpersonne {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background-color: #0000005c;
+  width: 90%;
+  border-radius: 1rem;
+  margin: 0.5rem auto;
+  padding: 0.5rem;
+}
+.personnelcardzone {
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  width: 100%;
+}
+.personnelcardzone img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.personnelcardzone span {
+  font-size: 0.8rem;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+}
+
+
+
+
+
+
+
+
+
+
+
 .MainArea {
   margin: 0.5rem 0.5rem;
   width: 75%;
@@ -111,6 +249,7 @@ body {
   font-weight: bold;
   font-size: 1.4rem;
   cursor: pointer;
+  transition: 0.5s;
   padding: 0.8rem 0.8rem;
 }
 
@@ -120,11 +259,19 @@ body {
 }
 .chambre {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   border: solid black 1rem;
+ height: 100%;
+ max-height: 1000px;
+overflow-y: auto;
 }
+.chambre::-webkit-scrollbar-thumb{
+  width: 1rem;
+  color: #888;
+}
+
 .Sreception {
   grid-column: 1/6;
   grid-row: 2/4;
@@ -235,6 +382,7 @@ body {
   font-weight: bold;
   font-size: 1.4rem;
   cursor: pointer;
+  transition: 0.5s;
 }
 .fermerformulaire:hover {
   color: red;
@@ -267,10 +415,16 @@ body {
   font-size: 0.7rem;
   border: 0.1rem solid white;
   cursor: pointer;
+  transition: 0.5s;
 }
-
+.error-msg{
+  display: none;
+  color:red;
+  font-weight: 600;
+  text-align: center;
+}
 .divform {
-  display: flex;
+  display:flex;
   justify-content: space-between;
   align-items: center;
 }
@@ -309,6 +463,7 @@ form select:focus {
   font-weight: bold;
   font-size: 1.4rem;
   cursor: pointer;
+  transition: 0.5s;
 }
 .ajouterexperience,
 .ajouterempzone:hover {
@@ -327,6 +482,11 @@ form select:focus {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  background-color: #0000002c;
+  box-shadow: -0.1rem 0.1rem 0.2rem 0.1rem rgba(0, 0, 0, 0.579);
 }
 .btnformajouterpersonel {
   padding: 0.7rem;
@@ -337,42 +497,20 @@ form select:focus {
   border-radius: 2rem;
   font-size: 1rem;
   border: 0.1rem solid white;
+ cursor: pointer;
+ transition: 0.5s;
+  
 }
 
 .btnformajouterpersonel:hover {
   background-color: rgb(111, 195, 111);
   border: 0.1rem solid grey;
 }
-.AddNewWorker {
-  padding: 0.7rem;
-  background-color: gray;
-  color: white;
-  border-radius: 2rem;
-  font-size: 1rem;
-  border: 0.1rem solid white;
-  cursor: pointer;
-}
-.AddNewWorker:hover {
-  background-color: rgb(111, 195, 111);
-  border: 0.1rem solid grey;
-}
-.outzone {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  margin-top: 1rem;
-  width: 100%;
-}
 
 
-.divpersonne {
-  display: flex;
-  flex-direction: row;
-  background-color: #8888882b;
-  width: 90%;
-  margin: auto auto;
-  border-radius: 1rem;
-}
+
+
+
 
 
 @media (max-width: 1280px) {

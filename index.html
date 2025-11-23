@@ -28,7 +28,7 @@
           <div class="divform">
             <label>roles autorises:</label>
             <select>
-              <option value="default">saisirez le role</option>
+              <option value="" disabled selected>saisirez le role</option>
               <option value="receptionniste">receptionniste</option>
               <option value="technicien">technicien</option>
               <option value="manager">manager</option>
@@ -61,7 +61,7 @@
               <button id="ajouterexperience" class="ajouterexperience" type="button">+</button>
             </div>
           </div>
-           <p id="error-msg"></p>
+           <p id="error-msg" class="error-msg"></p>
           <button id="btnformajouterpersonel" class="btnformajouterpersonel" type="submit">ajouter</button>
         </form>
       </div>
@@ -95,7 +95,7 @@
       <div class="cantainer">
         <div class="Sidebar">
           <div class="fls">
-          <h2>Unassigned Staff</h2>
+          <h3>Unassigned Staff</h3>
           <button id="AddNewWorker" class="AddNewWorker">Add New Worker</button>
           </div>
           <div id="outzone" class="outzone">
