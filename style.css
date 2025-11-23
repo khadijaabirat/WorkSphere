@@ -261,15 +261,21 @@ transition: 0.5s;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   border: solid black 1rem;
- height: 100%;
- max-height: 1000px;
-overflow-y: auto;
+  max-height: 500px;
+  overflow-y: auto;
 }
-.chambre::-webkit-scrollbar-thumb{
-  width: 1rem;
-  color: #888;
+.chambre::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.chambre::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+.chambre::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
 }
 
 .Sreception {
@@ -506,7 +512,24 @@ form select:focus {
   background-color: rgb(111, 195, 111);
   border: 0.1rem solid grey;
 }
+.btnformmodifierpersonel {
+  padding: 0.7rem;
+  width: 100%;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1rem;
+  border: 0.1rem solid white;
+ cursor: pointer;
+ transition: 0.5s;
+  
+}
 
+.btnformmodifierpersonel:hover {
+  background-color: rgb(215, 128, 41);
+  border: 0.1rem solid grey;
+}
 
 
 

@@ -54,31 +54,37 @@ const zones = [
     name: "Sconfrence",
     roles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdesecurite"],
     danschambre: [],
+    maxzone:1,
   },
   {
     name: "Sreception",
     roles: ["receptionniste", "manager", "nettoyage"],
     danschambre: [],
+       maxzone:5,
   },
   {
     name: "Sarchives",
     roles: ["receptionniste", "manager", "technicien", "agentdesecurite"],
     danschambre: [],
+       maxzone:7,
   },
   {
     name: "Spersonnel",
     roles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdesecurite"],
     danschambre: [],
+       maxzone:9,
   },
   {
     name: "Ssecurite",
     roles: ["agentdesecurite", "manager", "nettoyage"],
     danschambre: [],
+       maxzone:5,
   },
   {
     name: "Sserveur",
     roles: ["technicien", "manager", "nettoyage"],
     danschambre: [],
+       maxzone:5,
   },
 ];
 // btn AddNewWorker
@@ -134,6 +140,7 @@ function fermerformulaire() {
   const diveajoutex = document.getElementById("ajoutex");
   diveajoutex.innerHTML = "";
 }
+
 function ajoutepersonnel() {
   const nom = document.querySelector('input[name="nom"]');
   const select = document.querySelector("select");
@@ -156,11 +163,11 @@ function ajoutepersonnel() {
       dateFin: end_date.value,
     });
   });
-nom.style.backgroundColor = "";
-select.style.backgroundColor = "";
-photo.style.backgroundColor = "";
-email.style.backgroundColor = "";
-telephone.style.backgroundColor = "";
+  nom.style.backgroundColor = "";
+  select.style.backgroundColor = "";
+  photo.style.backgroundColor = "";
+  email.style.backgroundColor = "";
+  telephone.style.backgroundColor = "";
 
   if (!verificationform(nom, select, photo, email, telephone, experiencesarr)) {
     return;
@@ -195,7 +202,7 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
     nom.style.backgroundColor = "#e80e0e65";
     return false;
   }
-if (!select.value || select.value === "default") {
+  if (!select.value || select.value === "default") {
     msge.style.display = "flex";
     msge.innerHTML = "le role n'est pas valide.";
     select.style.backgroundColor = "#e80e0e65";
@@ -308,12 +315,15 @@ function changerSidebar() {
           </div >
           <div >
             <span>experiences :</span>
-             ${persson.experiences.map(
+             ${persson.experiences
+               .map(
                  (exp) => `
               <div style="margin-top: 0.6rem">
               <span>${exp.nomex} : ${exp.roleex}  </span>
               <small>${exp.dateDebut} au ${exp.dateFin}</small>              
-              </div>`).join("")}
+              </div>`
+               )
+               .join("")}
           </div>
    </form>`;
       divinfo.innerHTML = "";
@@ -338,13 +348,41 @@ function changerSidebar() {
       }
       Personnel = novarr;
     });
-    //  const btnmodif=principale.querySelector('.modiffier');
-    //  btnmodif.addEventListener("click",function(){
-    //  });
+    const btnmodif = principale.querySelector(".modiffier");
+    btnmodif.addEventListener("click", function () {
+      const formmodif = document.getElementById("modelformmodiffier");
+      formmodif.style.display = "flex";
+
+      for (let i = 0; i < Personnel.length; i++) {
+        if (Personnel[i].id == persson.id) {
+          let name = document.getElementById("nommodifier");
+          let role = document.getElementById("selectmodifier");
+          let photo = document.getElementById("photomodifier");
+          let telephone = document.getElementById("telephonemodifier");
+          let email = document.getElementById("emailmodifier");
+
+          name.value = persson.nom;
+          role.value = persson.role;
+          photo.value = persson.photo;
+          telephone.value = persson.telephone;
+          email.value = persson.email;
+
+
+        }
+      }
+    });
+
     divpersonelout.appendChild(principale);
   });
 }
 changerSidebar();
+const fermermodelmodifier = document.getElementById("fermerformulairemodifier");
+fermermodelmodifier.addEventListener("click", function () {
+  const model = document.getElementById("modelformmodiffier");
+  model.style.display = "none";
+  document.getElementById("formmodiffier").reset();
+});
+
 //  fermer model personne
 function fermermodelperson() {
   modelperson.style.display = "none";
@@ -393,10 +431,17 @@ function zone(idx) {
       });
       modelzdiv2.addEventListener("click", function () {
         const zonex = document.getElementById(zones[idx].name);
-        zonex.appendChild(modelzdiv);
+        if(zones[idx].maxzone>zones[idx].danschambre.length)
+        {
         zones[idx].danschambre.push(pesr.id);
         changerSidebar();
         redzone();
+        }
+        else{
+          window.alert("cette zone est plane !!!!");
+          return;
+        }
+           zonex.appendChild(modelzdiv);
       });
       divzon.appendChild(modelzdiv);
     }
