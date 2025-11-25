@@ -53,37 +53,37 @@ const zones = [
   {
     name: "Sconfrence",
     roles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdesecurite"],
-    danschambre: [],
+    danszone: [],
     maxzone:1,
   },
   {
     name: "Sreception",
     roles: ["receptionniste", "manager", "nettoyage"],
-    danschambre: [],
+    danszone: [],
        maxzone:5,
   },
   {
     name: "Sarchives",
     roles: ["receptionniste", "manager", "technicien", "agentdesecurite"],
-    danschambre: [],
+    danszone: [],
        maxzone:7,
   },
   {
     name: "Spersonnel",
     roles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdesecurite"],
-    danschambre: [],
+    danszone: [],
        maxzone:9,
   },
   {
     name: "Ssecurite",
     roles: ["agentdesecurite", "manager", "nettoyage"],
-    danschambre: [],
+    danszone: [],
        maxzone:5,
   },
   {
     name: "Sserveur",
     roles: ["technicien", "manager", "nettoyage"],
-    danschambre: [],
+    danszone: [],
        maxzone:5,
   },
 ];
@@ -257,7 +257,7 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
 function inzone() {
   let inzone = [];
   zones.forEach((zone) => {
-    zone.danschambre.forEach((Personnelid) => {
+    zone.danszone.forEach((Personnelid) => {
       inzone.push(Personnelid);
     });
   });
@@ -287,7 +287,7 @@ function changerSidebar() {
     const personDiv = document.createElement("div");
     personDiv.className = "personnelcard";
     personDiv.innerHTML = `
-  <div>
+  <div class="image">
   <img src="${persson.photo}">
 </div>
 <div class="prsnNR">
@@ -333,9 +333,9 @@ function changerSidebar() {
     const divaction = document.createElement("div");
     divaction.className = "actions";
     divaction.innerHTML = `
-     <button class="modiffier"><i class="fa-solid fa-pen"></i></button>
   <button class="supprimer"><i class="fa-solid fa-trash"></i></button>
   `;
+      //  <button class="modiffier"><i class="fa-solid fa-pen"></i></button>
     principale.appendChild(divaction);
     const btnsprm = principale.querySelector(".supprimer");
     btnsprm.addEventListener("click", function () {
@@ -348,40 +348,10 @@ function changerSidebar() {
       }
       Personnel = novarr;
     });
-    const btnmodif = principale.querySelector(".modiffier");
-    btnmodif.addEventListener("click", function () {
-      const formmodif = document.getElementById("modelformmodiffier");
-      formmodif.style.display = "flex";
-
-      for (let i = 0; i < Personnel.length; i++) {
-        if (Personnel[i].id == persson.id) {
-          let name = document.getElementById("nommodifier");
-          let role = document.getElementById("selectmodifier");
-          let photo = document.getElementById("photomodifier");
-          let telephone = document.getElementById("telephonemodifier");
-          let email = document.getElementById("emailmodifier");
-
-          name.value = persson.nom;
-          role.value = persson.role;
-          photo.value = persson.photo;
-          telephone.value = persson.telephone;
-          email.value = persson.email;
-
-
-        }
-      }
-    });
-
     divpersonelout.appendChild(principale);
   });
 }
 changerSidebar();
-const fermermodelmodifier = document.getElementById("fermerformulairemodifier");
-fermermodelmodifier.addEventListener("click", function () {
-  const model = document.getElementById("modelformmodiffier");
-  model.style.display = "none";
-  document.getElementById("formmodiffier").reset();
-});
 
 //  fermer model personne
 function fermermodelperson() {
@@ -417,28 +387,32 @@ function zone(idx) {
       modelzdiv.appendChild(btnfermerpersonel);
       btnfermerpersonel.addEventListener("click", function () {
         modelzdiv.remove();
-        for (let i = 0; i < zones[idx].danschambre.length; i++) {
-          if (zones[idx].danschambre[i] == pesr.id) {
-            for (let j = i; j < zones[idx].danschambre.length - 1; j++) {
-              zones[idx].danschambre[j] = zones[idx].danschambre[j + 1];
+        for (let i = 0; i < zones[idx].danszone.length; i++) {
+          if (zones[idx].danszone[i] == pesr.id) {
+            for (let j = i; j < zones[idx].danszone.length - 1; j++) {
+              zones[idx].danszone[j] = zones[idx].danszone[j + 1];
             }
-            zones[idx].danschambre.length--;
+            zones[idx].danszone.length--;
             break;
           }
         }
         changerSidebar();
         redzone();
       });
+      
       modelzdiv2.addEventListener("click", function () {
         const zonex = document.getElementById(zones[idx].name);
-        if(zones[idx].maxzone>zones[idx].danschambre.length)
+
+        if(zones[idx].maxzone>zones[idx].danszone.length)
         {
-        zones[idx].danschambre.push(pesr.id);
+        zones[idx].danszone.push(pesr.id);
         changerSidebar();
         redzone();
         }
         else{
-          window.alert("cette zone est plane !!!!");
+        let zoneMessage= document.querySelector('.zoneMessage');
+        zoneMessage.innerText = "";
+          zoneMessage.innerText = "cette zone est plane !!!!";
           return;
         }
            zonex.appendChild(modelzdiv);
@@ -488,7 +462,7 @@ btnfermerzone.addEventListener("click", function () {
 function redzone() {
   for (let i = 0; i < zones.length; i++) {
     if (zones[i].name !== "Sconfrence" && zones[i].name !== "Spersonnel") {
-      if (!zones[i].danschambre.length) {
+      if (!zones[i].danszone.length) {
         let divzone = document.querySelector("." + zones[i].name);
         divzone.style.backgroundColor = "rgba(255, 0, 0, 0.2)";
       } else {
@@ -502,4 +476,3 @@ redzone();
 //animation css
 //modifier personel
 //localstorg
-//max

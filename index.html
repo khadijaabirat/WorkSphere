@@ -36,7 +36,6 @@
               <option value="nettoyage">nettoyage</option>
             </select>
           </div>
-
           <div class="divform">
             <label for="photo">photo :</label>
             <input id="photo" type="url" name="photo" placeholder="saisirez la photo" />
@@ -66,71 +65,20 @@
         </form>
       </div>
     </div>
-    <div id="modelformmodiffier" class="backmodlform">
-      <div class="modelformilaire">
-        <div class="line1form">
-          <h1>Modiffier le personnel</h1>
-          <button type="button" id="fermerformulairemodifier" class="fermerformulaire">x</button>
-        </div>
-        <form id="formmodiffier" class="form">
-          <div class="divform">
-            <label for="nom">le nom:</label>
-            <input id="nommodifier" type="text" name="nommodifier" placeholder="saisirez le nom" />
-            
-          </div>
-          <div class="divform">
-            <label>roles autorises:</label>
-            <select id="selectmodifier">
-              <option value="" disabled selected>saisirez le role</option>
-              <option value="receptionniste">receptionniste</option>
-              <option value="technicien">technicien</option>
-              <option value="manager">manager</option>
-              <option value="agentdesecurite">agent de securite</option>
-              <option value="nettoyage">nettoyage</option>
-            </select>
-          </div>
 
-          <div class="divform">
-            <label for="photo">photo :</label>
-            <input id="photomodifier" type="url" name="photo" placeholder="saisirez la photo" />
-          </div>
-          <div class="rounde divform">
-            <img  id="afficherphoto" src="./istockphoto-513727339-612x612.jpg"/>
-          </div>
-          <div class="divform">
-            <label for="email">email :</label>
-            <input id="emailmodifier" type="email" name="email" placeholder="saisirer l'email" />
-          </div>
-          <div class="divform">
-            <label for="telephone">telephone :</label>
-            <input id="telephonemodifier" type="text" name="telephone" placeholder="saisirez le telephone" />
-          </div>
-          <!-- <div class="divform">
-            <label  for="experiences">experiences :</label>
-            <div class="ajoutex">
-              <div>
-                <div id="ajoutex"></div>
-              </div>
-              <button id="ajouterexperience" class="ajouterexperience" type="button">+</button>
-            </div>
-          </div> -->
-           <p id="error-msg" class="error-msg"></p>
-          <button id="btnformmodiffierpersonel" class="btnformmodifierpersonel" type="submit">Modiffier</button>
-        </form>
-      </div>
-    </div>
+
     <div id="modelzone" class="backmodlzone">
       <div class="modelzone">
         <div  class="line1form">
-         <h1>Ajouter un personnel</h1>
+         <h1>Ajouter un personnel a la zone</h1>
             <button type="button" id="btnfermerzone" class="fermerformulaire">x</button>
-
-        </div>
-         
+        </div>  
     <div id="divezone">     
      </div>
       </div>
     </div>
+
+
 
      <div id="modelpersonel" class="backmodlperson">
       <div class="modelperson">
@@ -155,27 +103,40 @@
         </div>
         <div class="MainArea">
           <div class="Sreception chambre">
-          <div> <button class="ajtmain btnreception">+</button></div> 
-               <div id="Sreception"></div>  
+          <div><button class="ajtmain btnreception">+</button>
+              <div class="zoneMessage" style="color:red; margin-top:5px;"></div>
+          </div> 
+          <div id="Sreception"></div>
           </div>
           <div class="Sconfrence chambre">
-           <div><button class="ajtmain btnconference">+</button></div> 
+           <div><button class="ajtmain btnconference">+</button>
+              <div class="zoneMessage" style="color:red; margin-top:5px;"></div>
+
+          </div> 
                <div id="Sconfrence"></div> 
           </div>
           <div class="Spersonnel chambre">
            <div> <button class="ajtmain btnpersonnel">+</button></div>
+                         <div class="zoneMessage" style="color:red; margin-top:5px;"></div>
+
                <div id="Spersonnel"></div> 
           </div>
           <div class="Sarchives chambre">
             <div><button class="ajtmain btnarchive">+</button></div>
+                          <div class="zoneMessage" style="color:red; margin-top:5px;"></div>
+
                <div id="Sarchives"></div> 
           </div>
           <div class="Sserveur chambre">
             <div><button class="ajtmain btnserveur">+</button></div> 
+                          <div class="zoneMessage" style="color:red; margin-top:5px;"></div>
+
                <div id="Sserveur"></div> 
           </div>
           <div class="Ssecurite chambre">
              <div><button class="ajtmain btnsecurite">+</button></div>
+                           <div class="zoneMessage" style="color:red; margin-top:5px;"></div>
+
                <div id="Ssecurite"></div> 
           </div>
         </div>
