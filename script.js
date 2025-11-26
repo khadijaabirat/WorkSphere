@@ -54,37 +54,37 @@ const zones = [
     name: "Sconfrence",
     roles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdesecurite"],
     danszone: [],
-    maxzone:1,
+    maxzone: 8,
   },
   {
     name: "Sreception",
     roles: ["receptionniste", "manager", "nettoyage"],
     danszone: [],
-       maxzone:5,
+    maxzone: 5,
   },
   {
     name: "Sarchives",
     roles: ["receptionniste", "manager", "technicien", "agentdesecurite"],
     danszone: [],
-       maxzone:7,
+    maxzone: 7,
   },
   {
     name: "Spersonnel",
     roles: ["receptionniste", "manager", "nettoyage", "technicien", "agentdesecurite"],
     danszone: [],
-       maxzone:9,
+    maxzone: 3,
   },
   {
     name: "Ssecurite",
     roles: ["agentdesecurite", "manager", "nettoyage"],
     danszone: [],
-       maxzone:5,
+    maxzone: 5,
   },
   {
     name: "Sserveur",
     roles: ["technicien", "manager", "nettoyage"],
     danszone: [],
-       maxzone:5,
+    maxzone: 5,
   },
 ];
 // btn AddNewWorker
@@ -99,6 +99,14 @@ const btnfermerformulaire = document.getElementById("fermerformulaire");
 btnfermerformulaire.addEventListener("click", function () {
   fermerformulaire();
 });
+//  fermer model ajouter
+function fermerformulaire() {
+  document.getElementById("form").reset();
+  const form = document.getElementById("modelform");
+  form.style.display = "none";
+  const diveajoutex = document.getElementById("ajoutex");
+  diveajoutex.innerHTML = "";
+}
 // afficher limage de personelle
 const photo = document.querySelector('input[name="photo"]');
 const img = document.getElementById("afficherphoto");
@@ -118,7 +126,7 @@ ajouterexperience.addEventListener("click", function () {
                   <input type="text" name="experience_name" placeholder="Nom de l'expérience" required />
                   <input type="text" name="experience_role" placeholder="Rôle" required />
                   <input type="date" name="start_date" placeholder="Date début" required />
-                  <input type="date" name="end_date" placeholder="Date fin" />
+                  <input type="date" name="end_date" placeholder="Date fin" required />
                   <button type="button" class="remove-experience">remove experience</button>
                `;
   ajoutex.appendChild(divtex);
@@ -127,19 +135,13 @@ ajouterexperience.addEventListener("click", function () {
     divtex.remove();
   });
 });
+
 /// ajouter un Personnel
 const btnajouter = document.getElementById("btnformajouterpersonel");
 btnajouter.addEventListener("click", function (event) {
   event.preventDefault();
   ajoutepersonnel();
 });
-function fermerformulaire() {
-  document.getElementById("form").reset();
-  const form = document.getElementById("modelform");
-  form.style.display = "none";
-  const diveajoutex = document.getElementById("ajoutex");
-  diveajoutex.innerHTML = "";
-}
 
 function ajoutepersonnel() {
   const nom = document.querySelector('input[name="nom"]');
@@ -150,11 +152,11 @@ function ajoutepersonnel() {
 
   let experiencesarr = [];
   const experiences = document.querySelectorAll(".experience");
-  experiences.forEach((div) => {
-    const nameInput = div.querySelector('input[name="experience_name"]');
-    const experienceRole = div.querySelector('input[name="experience_role"]');
-    const start_date = div.querySelector('input[name="start_date"]');
-    const end_date = div.querySelector('input[name="end_date"]');
+  experiences.forEach((exp) => {
+    const nameInput = exp.querySelector('input[name="experience_name"]');
+    const experienceRole = exp.querySelector('input[name="experience_role"]');
+    const start_date = exp.querySelector('input[name="start_date"]');
+    const end_date = exp.querySelector('input[name="end_date"]');
 
     experiencesarr.push({
       nomex: nameInput.value.trim(),
@@ -189,14 +191,14 @@ function ajoutepersonnel() {
 function verificationform(nom, select, photo, email, telephone, experiencesarr) {
   const nomregex = /^[a-zA-Z\s\-_]{2,}$/;
   const photoregex = /^https?:\/\/.+\.(jpg|jpeg|png|gif|webp|svg)$/i;
-  const emailregex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-  const telephoneregex = /^(\+212|0)([ \-]?)([67])(\d{8})$/;
+  const emailregex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,10}$/;
+  const telephoneregex = /^(\+212|0)([ \-]?)([5-7])(\d{8})$/;
   const roleregex = /^[a-zA-Z0-9\s\-_]{2,}$/;
 
   const msge = document.getElementById("error-msg");
   msge.innerHTML = "";
 
-  if (!nom.value.trim() || !nomregex.test(nom.value.trim())) {
+  if (!nomregex.test(nom.value.trim())) {
     msge.style.display = "flex";
     msge.innerHTML = "Le nom n'est pas valide.";
     nom.style.backgroundColor = "#e80e0e65";
@@ -214,13 +216,13 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
     photo.style.backgroundColor = "#e80e0e65";
     return false;
   }
-  if (!email.value.trim() || !emailregex.test(email.value.trim())) {
+  if (!emailregex.test(email.value.trim())) {
     msge.style.display = "flex";
     msge.innerHTML = "L'email n'est pas valide.";
     email.style.backgroundColor = "#e80e0e65";
     return false;
   }
-  if (!telephone.value.trim() || !telephoneregex.test(telephone.value.trim())) {
+  if (!telephoneregex.test(telephone.value.trim())) {
     msge.style.display = "flex";
     msge.innerHTML = "Le numero de telephone n'est pas valide.";
     telephone.style.backgroundColor = "#e80e0e65";
@@ -234,12 +236,12 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
       const Obj = experiencesarr[i];
       const dateDebut = new Date(Obj.dateDebut);
       const dateFin = new Date(Obj.dateFin);
-      if (!Obj.nomex || !nomregex.test(Obj.nomex)) {
+      if (!nomregex.test(Obj.nomex)) {
         msge.style.display = "flex";
         msge.innerHTML = "Le nom de  l'experience n'est pas valide.";
         return false;
       }
-      if (!Obj.roleex || !roleregex.test(Obj.roleex)) {
+      if (!roleregex.test(Obj.roleex)) {
         msge.style.display = "flex";
         msge.innerHTML = "Le role n'est pas valide.";
         return false;
@@ -253,7 +255,7 @@ function verificationform(nom, select, photo, email, telephone, experiencesarr) 
 
   return true;
 }
-// fonction return array fih les id personne li in zoninig
+// fonction return array qui centient les id personne li in zoninig
 function inzone() {
   let inzone = [];
   zones.forEach((zone) => {
@@ -263,7 +265,7 @@ function inzone() {
   });
   return inzone;
 }
-// fonction return array dyal les id personne li no zoning
+// fonction return array qui centient des objects de les personne li no zoning
 function outzone() {
   let outzone = [];
   Personnel.forEach((Personne) => {
@@ -279,6 +281,8 @@ function outzone() {
 const divpersonelout = document.getElementById("outzone");
 const modelperson = document.getElementById("modelpersonel");
 const divinfo = document.getElementById("diveinfo");
+
+
 function changerSidebar() {
   divpersonelout.innerHTML = "";
   outzone().forEach((persson) => {
@@ -303,7 +307,7 @@ function changerSidebar() {
       persoinfo.innerHTML = `      
       <form  class="forminfo">
           <div class="info1line">
-          <div >
+          <div class="infoimage">
           <img src="${persson.photo}">
           </div>
           <div >
@@ -330,13 +334,15 @@ function changerSidebar() {
       divinfo.appendChild(persoinfo);
     });
     principale.appendChild(personDiv);
+
     const divaction = document.createElement("div");
     divaction.className = "actions";
     divaction.innerHTML = `
   <button class="supprimer"><i class="fa-solid fa-trash"></i></button>
   `;
-      //  <button class="modiffier"><i class="fa-solid fa-pen"></i></button>
+    //  <button class="modiffier"><i class="fa-solid fa-pen"></i></button>
     principale.appendChild(divaction);
+
     const btnsprm = principale.querySelector(".supprimer");
     btnsprm.addEventListener("click", function () {
       principale.remove();
@@ -399,23 +405,19 @@ function zone(idx) {
         changerSidebar();
         redzone();
       });
-      
+
       modelzdiv2.addEventListener("click", function () {
         const zonex = document.getElementById(zones[idx].name);
 
-        if(zones[idx].maxzone>zones[idx].danszone.length)
-        {
-        zones[idx].danszone.push(pesr.id);
-        changerSidebar();
-        redzone();
-        }
-        else{
-        let zoneMessage= document.querySelector('.zoneMessage');
-        zoneMessage.innerText = "";
-          zoneMessage.innerText = "cette zone est plane !!!!";
+        if (zones[idx].maxzone > zones[idx].danszone.length) {
+          zones[idx].danszone.push(pesr.id);
+          changerSidebar();
+          redzone();
+        } else {
+          alert("cette zone est plane !!!!");
           return;
         }
-           zonex.appendChild(modelzdiv);
+        zonex.appendChild(modelzdiv);
       });
       divzon.appendChild(modelzdiv);
     }
@@ -473,6 +475,5 @@ function redzone() {
   }
 }
 redzone();
-//animation css
 //modifier personel
 //localstorg

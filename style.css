@@ -179,6 +179,7 @@ transition: 0.5s;
   justify-content: space-around;
   align-items: center;
   gap: 1rem;
+
 }
 
 
@@ -221,7 +222,7 @@ transition: 0.5s;
   margin: 0.5rem 0.5rem;
   width:75%;
   height : 95vh;
-  background-image: url("./workspace.webp");
+  background-image: url("./images/workspace.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -514,22 +515,6 @@ form select:focus {
   .personnelcard {
   width: 60%;
 }
-.prsnNR p,.prsnNR span{
-font-size: 0.5rem;
-}
-.personnelcard image{
-width: 10px;
-height: 10px;
-}
-.personnelcard img{
-width: 30px;
-height: 30px;
-}
-.principalediv{
-
-  gap: 0.35rem;
-
-}
 }
 @media (max-width: 1024px) {
     .cantainer {
@@ -566,7 +551,7 @@ height: 30px;
 
 }
   .MainArea {
-    background-image: url(./workspacemobile.jpg);
+    background-image: url(./images/workspacemobile.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -602,4 +587,22 @@ height: 30px;
 .modelformilaire,.modelzone,.modelperson{
   width: 80%;
 }
+.info1line{
+  width: 50%;
+}
+.infoimage img{
+width: 150px;
+height: 250px;
+}
+  .personnelcard {
+  width: 100%;
+}
+.prsnNR p,.prsnNR span{
+font-size: 1rem;
+}
+.personnelcard img{
+width: 70px;
+height:70px;
+}
+
 }
