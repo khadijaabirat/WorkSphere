@@ -1,129 +1,182 @@
-﻿# WorkSphere
+# WorkSphere — Interactive Workspace Management
 
-. WorkSphere – Application de Gestion Visuelle du Personnel
+WorkSphere is an interactive web application designed to simplify workspace and employee management through a visual floor plan system. The platform allows administrators to assign, move, and manage employees dynamically while enforcing role-based workspace restrictions.
 
-WorkSphere est une application web que j’ai développée pour permettre la gestion visuelle, claire et intuitive du personnel sur un plan d’étage.
-L’objectif est de faciliter l’organisation interne en permettant d’ajouter, déplacer et gérer les employés en temps réel, tout en respectant les règles d’accès propres à chaque rôle.
+---
 
-. Contexte du projet
+## Preview
 
-J’ai réalisé ce projet afin de proposer une solution moderne et interactive de répartition du personnel dans un espace de travail. L’application vise à optimiser la visibilité, la gestion des rôles et la compréhension de l’occupation des zones à travers une interface simple et responsive.
+Modern and responsive workspace management interface featuring:
 
-. Objectifs principaux
+* Interactive office floor plan
+* Dynamic employee assignment
+* Role-based access control
+* Responsive design for all devices
+* Employee profile management
+* Real-time visual organization
 
-Permettre l’ajout, la suppression et le déplacement des employés directement sur un plan d’étage.
+---
 
-Appliquer des règles d’accès basées sur les rôles afin de garantir la cohérence métier.
+## Live Demo
 
-Proposer une expérience fluide, ergonomique et compatible avec tous les appareils.
+* GitHub Repository: https://github.com/khadijaabirat/WorkSphere
+* Live Website:  https://khadijaabirat.github.io/WorkSphere/
 
-Centraliser à la fois les informations du personnel et leur position actuelle dans les locaux.
+---
 
-. User Stories
-. Design & UX
+## Features
 
-J’ai conçu une interface claire, intuitive et cohérente.
+### Employee Management
 
-J’ai défini une palette de couleurs professionnelle et des icônes facilement reconnaissables.
+* Add new employees dynamically
+* Delete or unassign employees
+* View detailed employee profiles
+* Upload employee images via URL
+* Add professional experiences dynamically
 
-J’ai créé les versions Desktop et Mobile en utilisant Flexbox, Grid, des formes arrondies et des boutons colorés.
+### Interactive Workspace System
 
-. Développement Front-End
-Structure générale
+* Visual office floor plan
+* Employee assignment by workspace zone
+* Dynamic workspace updates
+* Empty mandatory zones highlighted automatically
 
-Mise en place d’une structure HTML comprenant une barre latérale listant les employés non assignés et un bouton “Add New Worker”.
+### Role-Based Access Control (RBAC)
 
-Création d’une modale d’ajout d’employé avec :
+The application enforces business rules depending on employee roles:
 
-Nom, rôle, photo (URL), email, téléphone
+| Role           | Authorized Areas            |
+| -------------- | --------------------------- |
+| Receptionist   | Reception only              |
+| IT Technician  | Server Room                 |
+| Security Agent | Security Room               |
+| Manager        | Access to all areas         |
+| Cleaning Staff | All areas except Archives   |
+| Other Roles    | Standard unrestricted areas |
 
-Ajout dynamique d’expériences professionnelles
+### Responsive Design
 
-Intégration d’une prévisualisation automatique de la photo.
+* Fully responsive on desktop, tablet, and mobile
+* Flexible layouts using CSS Grid and Flexbox
+* Optimized user experience across screen sizes
+* Mobile-friendly interactions
 
-Plan d’étage (6 zones)
+### UI & UX
 
-J’ai représenté visuellement les zones suivantes :
+* Clean and modern interface
+* Professional color palette
+* Smooth CSS animations
+* Intuitive navigation and interactions
+* Accessible and visually balanced design
 
-Réception
+---
 
-Salle de conférence
+## Workspace Areas
 
-Salle des serveurs
+The floor plan includes 6 interactive zones:
 
-Salle de sécurité
+* Reception
+* Conference Room
+* Server Room
+* Security Room
+* Staff Room
+* Archive Room
 
-Salle du personnel
+---
 
-Salle d’archives
+## Tech Stack
 
-Gestion des rôles (RBAC)
+### Front-End
 
-J’ai intégré les règles suivantes :
+* HTML5
+* CSS3
+* JavaScript
 
-Réception → Réceptionnistes uniquement
+### Design & Layout
 
-Salle des serveurs → Techniciens IT
+* Flexbox
+* CSS Grid
+* Responsive Design
+* CSS Animations
 
-Salle de sécurité → Agents de sécurité
+### Tools
 
-Manager → accès à toutes les zones
+* Git
+* GitHub
+* GitHub Pages / Vercel
 
-Nettoyage → partout sauf archives
+---
 
-Autres rôles → accès libre sauf zones restreintes
+## Project Architecture
 
-Fonctionnalités développées
+The project is structured into modular sections for maintainability and scalability:
 
-Bouton de suppression (X) sur chaque employé pour le renvoyer dans la liste “Unassigned”.
+```bash
+WorkSphere/
+│
+├── index.html
+├── style.css
+├── script.js
+├── assets/
+│   ├── images/
+│   └── icons/
+└── README.md
+```
 
-Affichage d’un profil détaillé contenant toutes les informations de l’employé.
+---
 
-Bouton + dans chaque zone pour ajouter un employé autorisé.
+## Challenges Faced
 
-Mise en évidence des zones obligatoires vides en rouge pâle.
+During the development process, several technical challenges were addressed:
 
-Système de limitation du nombre d’employés par zone.
+* Managing dynamic employee assignment logic
+* Implementing role-based workspace restrictions
+* Maintaining responsive layouts across devices
+* Handling DOM updates dynamically
+* Designing an intuitive and scalable UI system
 
-Interface entièrement responsive avec animations CSS.
+---
 
-Validation HTML/CSS via W3C Validator.
+## Performance & Best Practices
 
-Déploiement possible via GitHub Pages ou Vercel.
+* Semantic HTML structure
+* Responsive and accessible layout
+* Optimized assets and styling
+* Clean and organized codebase
+* Cross-browser compatibility
+* W3C HTML/CSS validation
 
-. Organisation (Scrum Master)
+---
 
-Utilisation de Trello / Jira / GitHub Projects pour structurer le travail.
+## Future Improvements
 
-Gestion basique des branches Git.
+Planned enhancements for future versions:
 
-Présentation finale des fonctionnalités développées.
+* Drag & Drop employee movement
+* Database integration
+* Authentication system
+* Real-time synchronization
+* Admin dashboard
+* Backend API integration
+* Dark mode support
 
-. Responsivité – Tailles d’écrans prises en charge
-Portrait
+---
 
-1280px : grands écrans
+## Project Management
 
-1024–1279px : écrans moyens
+The project workflow was organized using agile planning tools such as:
 
-768–1023px : tablettes
+* Trello
+* GitHub Projects
 
-≤767px : mobiles
+Git version control was used throughout the development process with branch management and commit tracking.
 
-Paysage
+---
 
-768–1023px : mobiles
+## Author
 
-1024–1279px : tablettes
+Khadija Abirat
+Front-End Developer passionate about creating modern, interactive, and user-centered web experiences.
 
-. Technologies utilisées
-
-HTML5
-
-CSS3 (Flexbox, Grid, animations)
-
-JavaScript
-
-. Développé par
-
-Abirat Khadija — Développeuse Front-End.
+* GitHub:  https://github.com/khadijaabirat
+* LinkedIn:  https://www.linkedin.com/in/abirat-khadija
