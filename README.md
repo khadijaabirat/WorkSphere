@@ -172,6 +172,17 @@ The project workflow was organized using agile planning tools such as:
 Git version control was used throughout the development process with branch management and commit tracking.
 
 ---
+## demo
+<img width="1525" height="722" alt="Capture d&#39;écran 2026-05-19 093111" src="https://github.com/user-attachments/assets/64ee776c-91f6-43f5-947e-6d0a2bd44fab" />
+<img width="1525" height="727" alt="Capture d&#39;écran 2026-05-19 093018" src="https://github.com/user-attachments/assets/b7c1338e-d782-43bb-86d0-ce49de6d8e1b" />
+<img width="1517" height="717" alt="Capture d&#39;écran 2026-05-19 093433" src="https://github.com/user-attachments/assets/54ad9c5c-753e-49ca-b81a-78ac24f10735" />
+<img width="283" height="637" alt="Capture d&#39;écran 2026-05-19 093701" src="https://github.com/user-attachments/assets/413c7ab5-4af1-4453-8898-9c9bd87ad3bf" />
+<img width="287" height="638" alt="Capture d&#39;écran 2026-05-19 093750" src="https://github.com/user-attachments/assets/e5e5eb23-c351-4b49-9687-fbd512581734" />
+
+
+
+
+
 
 ## Author
 
